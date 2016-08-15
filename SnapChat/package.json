@@ -1,0 +1,21 @@
+{
+  "name": "SnapChat",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "react-native run-ios && npm run lint",
+    "lint": "esw --watch"
+  },
+  "dependencies": {
+    "react": "15.2.1",
+    "react-native": "0.31.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^6.1.2",
+    "eslint": "^3.3.0",
+    "eslint-config-standard-react": "^3.0.0",
+    "eslint-plugin-react": "^6.1.0",
+    "eslint-watch": "^2.1.14",
+    "standard": "^7.1.2"
+  }
+}
