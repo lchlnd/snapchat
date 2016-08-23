@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { AppRegistry, NavigatorIOS } from 'react-native'
-import LoginRegister from './App/Components/LoginRegister/LoginRegister'
+import Landing from './App/Components/Landing/Landing'
 import Main from './App/Components/Main/Main'
 
 class SnapChat extends Component {
@@ -27,7 +27,7 @@ class SnapChat extends Component {
           style={{flex: 1}}
           initialRoute={{
             title: 'SnapChat',
-            component: LoginRegister
+            component: Landing
           }}
         />
       )

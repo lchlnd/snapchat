@@ -1,12 +1,13 @@
 import { StyleSheet } from 'react-native'
 
-export const loginRegisterStyles = StyleSheet.create({
+export const landingStyles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#efce00'
+    backgroundColor: '#f3ea11'
   },
   logo: {
-    marginTop: 250
+    marginTop: 150,
+    alignSelf: 'center'
   },
   buttonText: {
     fontSize: 24,

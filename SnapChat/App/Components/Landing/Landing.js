@@ -1,11 +1,10 @@
 import React, { Component, PropTypes } from 'react'
-import { Text, View, TouchableHighlight } from 'react-native'
-import { loginRegisterStyles as styles } from './loginRegisterStyles'
-import Login from './Login'
-import Register from './Register'
+import { Text, View, Image, TouchableHighlight } from 'react-native'
+import { landingStyles as styles } from './landingStyles'
+import LoginContainer from '../Login/LoginContainer'
+import RegisterContainer from '../Register/RegisterContainer'
 
-// Container component that shows the initial screen of either signing into the app, or registering
-class LoginRegister extends Component {
+class Landing extends Component {
   constructor (props) {
     super(props)
     // need to bind the context of 'this' to this class, so the methods have the right context when they are called
@@ -15,23 +14,23 @@ class LoginRegister extends Component {
 
   loginButtonPressed () {
     this.props.navigator.push({
-      title: 'Login',
-      component: Login
+      title: 'LoginContainer',
+      component: LoginContainer
     })
   }
 
   registerButtonPressed () {
     this.props.navigator.push({
-      title: 'Login',
-      component: Register
+      title: 'RegisterContainer',
+      component: RegisterContainer
     })
   }
 
   render () {
     return (
       <View style={styles.container}>
-        <View style={styles.logo}>
-          <Text style={styles.buttonText}>SnepChert</Text>
+        <View>
+          <Image style={styles.logo} source={require('../../../images/logo.png')} />
         </View>
 
         <View style={styles.footer}>
@@ -54,8 +53,8 @@ class LoginRegister extends Component {
 
 // this is just declaring the stuff this component expects to receive, more for documentation.
 // so you can just look at the prop types then the render method to understand whats going on
-LoginRegister.propTypes = {
+Landing.propTypes = {
   navigator: PropTypes.object
 }
 
-export default LoginRegister
+export default Landing

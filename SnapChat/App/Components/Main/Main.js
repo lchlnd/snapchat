@@ -1,5 +1,5 @@
-import React, { PropTypes, Component } from 'react'
-import { Text, View, TouchableHighlight } from 'react-native'
+import React, { Component } from 'react'
+import { Text, View } from 'react-native'
 
 // The root component container of the app that gets rendered after user has logged in
 class Main extends Component {
