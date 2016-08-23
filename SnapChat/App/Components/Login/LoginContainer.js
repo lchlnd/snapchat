@@ -4,7 +4,7 @@ import Login from './Login'
 class LoginContainer extends Component {
   constructor (props) {
     super(props)
-    this.backButtonPressed = this.backPressed.bind(this)
+    this.backButtonPressed = this.backButtonPressed.bind(this)
   }
 
   // navigator component gets passed down automatically as prop from index.ios.js (NavigatorIOS)
