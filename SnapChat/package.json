@@ -8,7 +8,8 @@
   },
   "dependencies": {
     "react": "15.2.1",
-    "react-native": "0.31.0"
+    "react-native": "0.31.0",
+    "react-native-camera": "git+https://github.com/lwansbrough/react-native-camera.git"
   },
   "devDependencies": {
     "babel-eslint": "^6.1.2",
