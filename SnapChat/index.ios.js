@@ -3,6 +3,8 @@ import { AppRegistry, NavigatorIOS } from 'react-native'
 import Landing from './App/Components/Landing/Landing'
 import Main from './App/Components/Main/Main'
 
+import ChatContainer from './App/Components/Chat/ChatContainer'
+
 class SnapChat extends Component {
   constructor () {
     super()
@@ -27,7 +29,7 @@ class SnapChat extends Component {
           style={{flex: 1}}
           initialRoute={{
             title: 'SnapChat',
-            component: Landing
+            component: ChatContainer
           }}
         />
       )
