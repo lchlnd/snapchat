@@ -7,8 +7,8 @@ export const loginStyles = StyleSheet.create({
     marginTop: 30
   },
   backArrow: {
-    height: 25,
-    width: 25,
+    height: 35,
+    width: 35,
     marginLeft: 10,
     marginTop: 10
   },
@@ -18,13 +18,19 @@ export const loginStyles = StyleSheet.create({
   },
   loginHeader: {
     fontWeight: 'bold',
-    color: '#212121',
+    color: '#424242',
     fontSize: 20
   },
   formContainer: {
     marginTop: 25,
     marginLeft: 25,
     marginRight: 25
+  },
+  inputLabel: {
+    color: '#757575',
+    fontWeight: 'bold',
+    marginTop: 10,
+    fontSize: 12
   },
   formInput: {
     marginTop: 3,
