@@ -4,11 +4,10 @@ import Login from './Login'
 class LoginContainer extends Component {
   constructor (props) {
     super(props)
+
     this.backButtonPressed = this.backButtonPressed.bind(this)
   }
 
-  // navigator component gets passed down automatically as prop from index.ios.js (NavigatorIOS)
-  // allows you to push or pop components onto the navigation stack
   backButtonPressed () {
     this.props.navigator.pop()
   }
@@ -22,4 +21,4 @@ LoginContainer.propTypes = {
   navigator: PropTypes.object
 }
 
-export default Login
+export default LoginContainer

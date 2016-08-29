@@ -4,6 +4,7 @@ import Register from './Register'
 class RegisterContainer extends Component {
   constructor (props) {
     super(props)
+
     this.backButtonPressed = this.backButtonPressed.bind(this)
   }
 

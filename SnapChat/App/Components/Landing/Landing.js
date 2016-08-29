@@ -7,9 +7,15 @@ import RegisterContainer from '../Register/RegisterContainer'
 class Landing extends Component {
   constructor (props) {
     super(props)
-    // need to bind the context of 'this' to this class, so the methods have the right context when they are called
+
+    this.state = {
+      logoActive: false
+    }
+
     this.loginButtonPressed = this.loginButtonPressed.bind(this)
     this.registerButtonPressed = this.registerButtonPressed.bind(this)
+    this.onPressIn = this.onPressIn.bind(this)
+    this.onPressOut = this.onPressOut.bind(this)
   }
 
   loginButtonPressed () {
@@ -26,33 +32,50 @@ class Landing extends Component {
     })
   }
 
+  onPressIn () {
+    this.setState({logoActive: true})
+  }
+
+  onPressOut () {
+    this.setState({logoActive: false})
+  }
+
   render () {
+    const logo = this.state.logoActive
+                  ? <Image style={styles.logo} source={require('../../../images/logo_active.png')} />
+                  : <Image style={styles.logo} source={require('../../../images/logo.png')} />
     return (
       <View style={styles.container}>
         <View>
-          <Image style={styles.logo} source={require('../../../images/logo.png')} />
+          {logo}
         </View>
 
         <View style={styles.footer}>
-          <TouchableHighlight onPress={this.loginButtonPressed}>
+          <TouchableHighlight
+            onPress={this.loginButtonPressed}
+            onPressIn={this.onPressIn}
+            onPressOut={this.onPressOut}
+          >
             <View style={styles.loginButton}>
               <Text style={styles.buttonText}>LOG IN</Text>
             </View>
           </TouchableHighlight>
 
-          <TouchableHighlight onPress={this.registerButtonPressed}>
+          <TouchableHighlight
+            onPress={this.registerButtonPressed}
+            onPressIn={this.onPressIn}
+            onPressOut={this.onPressOut}
+          >
             <View style={styles.signupButton}>
               <Text style={styles.buttonText}>SIGN UP</Text>
             </View>
           </TouchableHighlight>
         </View>
       </View>
-     )
+    )
   }
 }
 
-// this is just declaring the stuff this component expects to receive, more for documentation.
-// so you can just look at the prop types then the render method to understand whats going on
 Landing.propTypes = {
   navigator: PropTypes.object
 }
