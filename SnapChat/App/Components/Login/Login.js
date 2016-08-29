@@ -2,17 +2,24 @@ import React, { PropTypes } from 'react'
 import { View, Text, TouchableHighlight, Image, TextInput } from 'react-native'
 import { loginStyles as styles } from './loginStyles'
 
-// can use [] for style={[]}
-const Login = ({ backButtonPressed, updateUsername, updatePassword }) => (
+const Login = ({
+  backButtonPressed,
+  updateUsername,
+  updatePassword,
+  loginButtonPressed,
+  hasValidInput
+}) => (
   <View style={styles.container}>
-
     <View style={{backgroundColor: 'transparent'}}>
       <TouchableHighlight
         style={styles.backArrowContainer}
         onPress={backButtonPressed}
         underlayColor="#F5F5F5"
       >
-        <Image style={styles.backArrow} source={require('../../../images/back_arrow.png')} />
+        <Image
+          style={styles.backArrow}
+          source={require('../../../images/back_arrow.png')}
+        />
       </TouchableHighlight>
     </View>
 
@@ -33,18 +40,32 @@ const Login = ({ backButtonPressed, updateUsername, updatePassword }) => (
         onChangeText={updatePassword}
       />
 
-      <View style={styles.loginButtonContainer}>
-        <TouchableHighlight>
-
-        </TouchableHighlight>
-      </View>
+      <TouchableHighlight
+        style={styles.loginButtonContainer}
+        onPress={hasValidInput ? loginButtonPressed : () => {}} // TODO: can prob provide error msg
+        underlayColor="#F5F5F5"
+      >
+        <View style={hasValidInput
+          ? styles.loginButtonActivated
+          : styles.loginButtonDeactivated}>
+          <Text style={hasValidInput
+            ? styles.loginButtonActivatedText
+            : styles.loginButtonDeactivatedText}>Log In</Text>
+        </View>
+      </TouchableHighlight>
 
     </View>
   </View>
 )
 
+const func = PropTypes.func.isRequired
+
 Login.propTypes = {
-  backButtonPressed: PropTypes.func
+  backButtonPressed: func,
+  updateUsername: func,
+  updatePassword: func,
+  loginButtonPressed: func,
+  hasValidInput: PropTypes.bool.isRequired
 }
 
 export default Login

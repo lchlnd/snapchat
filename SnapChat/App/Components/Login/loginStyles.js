@@ -21,6 +21,7 @@ export const loginStyles = StyleSheet.create({
     color: '#424242',
     fontSize: 20
   },
+  // FORM
   formContainer: {
     marginTop: 25,
     marginLeft: 25,
@@ -37,5 +38,34 @@ export const loginStyles = StyleSheet.create({
     height: 40,
     borderColor: 'silver',
     borderWidth: 1
+  },
+  // LOGIN BUTTON
+  loginButtonContainer: {
+    marginTop: 25,
+    alignSelf: 'center'
+  },
+  loginButtonActivated: {
+    height: 42,
+    width: 200,
+    borderRadius: 20,
+    justifyContent: 'center',
+    backgroundColor: 'purple'
+  },
+  loginButtonActivatedText: {
+    alignSelf: 'center',
+    color: 'white',
+    fontWeight: 'bold'
+  },
+  loginButtonDeactivated: {
+    height: 42,
+    width: 200,
+    borderRadius: 20,
+    justifyContent: 'center',
+    backgroundColor: 'silver'
+  },
+  loginButtonDeactivatedText: {
+    alignSelf: 'center',
+    color: 'gray',
+    fontWeight: 'bold'
   }
 })

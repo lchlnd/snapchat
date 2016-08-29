@@ -7,13 +7,15 @@ class LoginContainer extends Component {
 
     this.state = {
       username: '',
-      password: ''
+      password: '',
+      isInputValid: false
     }
 
     this.backButtonPressed = this.backButtonPressed.bind(this)
     this.loginButtonPressed = this.loginButtonPressed.bind(this)
     this.updatePassword = this.updatePassword.bind(this)
     this.updateUsername = this.updateUsername.bind(this)
+    this.validateInput = this.validateInput.bind(this)
   }
 
   backButtonPressed () {
@@ -22,10 +24,19 @@ class LoginContainer extends Component {
 
   updateUsername (updatedUsername) {
     this.setState({ username: updatedUsername })
+    this.validateInput()
   }
 
   updatePassword (updatedPassword) {
     this.setState({ password: updatedPassword })
+    this.validateInput()
+  }
+
+  // simple validation for now
+  validateInput () {
+    if (this.state.username.length > 1 && this.state.password.length > 1) {
+      this.setState({isValidInput: true})
+    }
   }
 
   loginButtonPressed () {
@@ -39,10 +50,14 @@ class LoginContainer extends Component {
 
   render () {
     return (
-      <Login backButtonPressed={this.backButtonPressed}
-             loginButtonPressed={this.loginButtonPressed}
-             updateUsername={this.updateUsername}
-             updatePassword={this.updatePassword} />)
+      <Login
+        backButtonPressed={this.backButtonPressed}
+        loginButtonPressed={this.loginButtonPressed}
+        updateUsername={this.updateUsername}
+        updatePassword={this.updatePassword}
+        hasValidInput={this.state.isInputValid}
+      />
+    )
   }
 }
 
