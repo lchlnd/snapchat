@@ -6,9 +6,10 @@ export const chatStyles = StyleSheet.create({
   },
   userRow: {
     padding: 10,
-    fontSize: 20,
     flex: 1,
-    flexDirection: 'row'
+    flexDirection: 'row',
+    borderBottomColor: 'rgb(176, 174, 172)',
+    borderBottomWidth: 0.23
   },
   userRowInfo: {
     flexDirection: 'column'
@@ -21,5 +22,9 @@ export const chatStyles = StyleSheet.create({
   },
   imageIcon: {
     width: 70
+  },
+  lastRecieved: {
+    fontSize: 10,
+    paddingTop: 3
   }
 })

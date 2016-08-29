@@ -20,30 +20,31 @@ ChatContainer.propTypes = {
 export default ChatContainer
 
 // mock data
+import constants from '../../constants'
 const friends = [
   {
     name: 'lachlan',
     lastRecieved: '5m',
-    newImage: true
+    imageStatus: constants.IMAGE_RECIEVED_STATUS
   },
   {
     name: 'ryan',
     lastRecieved: '16h',
-    newImage: false
+    imageStatus: constants.IMAGE_SENT_STATUS
   },
   {
     name: 'nathan',
     lastRecieved: '10m',
-    newImage: false
+    imageStatus: constants.IMAGE_RECIEVED_STATUS
   },
   {
     name: 'tim',
     lastRecieved: '30m',
-    newImage: true
+    imageStatus: constants.IMAGE_SENT_STATUS
   },
   {
     name: 'remdogga',
     lastRecieved: 'just now',
-    newImage: false
+    imageStatus: constants.IMAGE_OPENED_STATUS
   }
 ]
