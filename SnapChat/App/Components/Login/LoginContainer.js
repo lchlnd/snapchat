@@ -17,10 +17,6 @@ class LoginContainer extends Component {
     this.updateUsername = this.updateUsername.bind(this)
   }
 
-  componentDidUpdate (prevProps, prevState) {
-    console.log(prevState)
-  }
-
   backButtonPressed () {
     this.props.navigator.pop()
   }
