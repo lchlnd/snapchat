@@ -15,27 +15,30 @@ class LoginContainer extends Component {
     this.loginButtonPressed = this.loginButtonPressed.bind(this)
     this.updatePassword = this.updatePassword.bind(this)
     this.updateUsername = this.updateUsername.bind(this)
-    this.validateInput = this.validateInput.bind(this)
+  }
+
+  componentDidUpdate (prevProps, prevState) {
+    console.log(prevState)
   }
 
   backButtonPressed () {
     this.props.navigator.pop()
   }
 
-  updateUsername (updatedUsername) {
-    this.setState({ username: updatedUsername })
-    this.validateInput()
-  }
-
-  updatePassword (updatedPassword) {
-    this.setState({ password: updatedPassword })
-    this.validateInput()
-  }
-
   // simple validation for now
-  validateInput () {
-    if (this.state.username.length > 1 && this.state.password.length > 1) {
-      this.setState({isValidInput: true})
+  updatePassword (updatedPassword) {
+    if (updatedPassword.length >= 1 && this.state.password.length >= 1) {
+      this.setState({ password: updatedPassword, isInputValid: true })
+    } else {
+      this.setState({ password: updatedPassword, isInputValid: false })
+    }
+  }
+
+  updateUsername (updatedUsername) {
+    if (updatedUsername >= 1 && this.state.password.length >= 1) {
+      this.setState({ username: updatedUsername, isInputValid: true })
+    } else {
+      this.setState({ username: updatedUsername, isInputValid: false })
     }
   }
 
