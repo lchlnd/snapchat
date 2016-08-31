@@ -51,6 +51,9 @@ export const meStyles = StyleSheet.create({
         textAlign: 'center',
         flex: 1
     },
+    flex: {
+        flex: 1
+    },
     cameraButton: {
 
     }

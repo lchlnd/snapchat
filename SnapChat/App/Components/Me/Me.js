@@ -6,16 +6,24 @@ const Me = ({
     addedMePressed,
     addFriendsPressed,
     myFriendsPressed,
-    cameraBackPressed
+    cameraBackPressed,
+    trophyCasePressed,
+    settingsPressed
     }) => (
 
     <View style={styles.container}>
 
         {/* Header */}
         <View style={styles.header}>
-            <Text style={styles.headerButton}> / ? / </Text>
-            <Text style={styles.headerMiddle}> / T / </Text>
-            <Text style={styles.headerButton}> / S / </Text>
+            <TouchableHighlight>
+                <Text style={styles.headerButton}> / ? / </Text>
+            </TouchableHighlight>
+            <TouchableHighlight style={styles.flex} onPress={trophyCasePressed}>
+                <Text style={styles.headerMiddle}> / T / </Text>
+            </TouchableHighlight>
+            <TouchableHighlight onPress={settingsPressed}>
+                <Text style={styles.headerButton}> / S / </Text>
+            </TouchableHighlight>
         </View>
 
         {/* Barcode Image */}
@@ -74,7 +82,9 @@ Me.propTypes = {
     addedMePressed: func,
     cameraBackPressed: func,
     myFriendsPressed: func,
-    addFriendsPressed: func
+    addFriendsPressed: func,
+    trophyCasePressed: func,
+    settingsPressed: func
 }
 
 export default Me
