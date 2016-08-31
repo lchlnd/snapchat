@@ -23,7 +23,7 @@ class LoginContainer extends Component {
 
   // simple validation for now
   updatePassword (updatedPassword) {
-    if (updatedPassword.length >= 1 && this.state.password.length >= 1) {
+    if (updatedPassword && this.state.username) {
       this.setState({ password: updatedPassword, isInputValid: true })
     } else {
       this.setState({ password: updatedPassword, isInputValid: false })
@@ -31,7 +31,7 @@ class LoginContainer extends Component {
   }
 
   updateUsername (updatedUsername) {
-    if (updatedUsername >= 1 && this.state.password.length >= 1) {
+    if (updatedUsername && this.state.password) {
       this.setState({ username: updatedUsername, isInputValid: true })
     } else {
       this.setState({ username: updatedUsername, isInputValid: false })

@@ -3,23 +3,22 @@ import { Text, View, TextInput, TouchableHighlight } from 'react-native'
 import { backArrow } from '../Login/Login'
 import { registerStyles as styles } from './registerStyles'
 
-const Register = ({
+const RegisterPassword = ({
   backButtonPressed,
-  signupButtonPressed,
-  updateFirstname,
-  updateLastname,
+  finishButtonPressed,
+  updatePassword,
   hasValidInput
 }) => (
   <View style={styles.container}>
     { backArrow(backButtonPressed) }
 
     <View style={styles.registerHeaderWrapper}>
-      <Text style={styles.registerHeader}>What's your name?</Text>
+      <Text style={styles.registerHeader}>Choose a password</Text>
     </View>
 
     <View style={styles.formContainer}>
-      { inputFields() }
-      { signupButton(hasValidInput, signupButtonPressed) }
+      { inputFields(updatePassword) }
+      { continueButton(hasValidInput, finishButtonPressed) }
     </View>
 
   </View>
@@ -27,26 +26,21 @@ const Register = ({
 
 const func = PropTypes.func
 
-Register.propTypes = {
+RegisterPassword.propTypes = {
   backButtonPressed: func.isRequired,
-  signupButtonPressed: func.isRequired,
-  updateFirstname: func.isRequired,
-  updateLastname: func.isRequired,
+  finishButtonPressed: func.isRequired,
+  updatePassword: func.isRequired,
   hasValidInput: PropTypes.bool.isRequired
 }
 
-export default Register
+export default RegisterPassword
 
-function inputFields (updateUsername, updatePassword) {
+function inputFields (updatePassword) {
   return (
     <View>
-      <Text style={styles.inputLabel}>First Name</Text>
-      <TextInput
-        style={styles.formInput}
-        onChangeText={updateUsername}
-      />
-
-      <Text style={styles.inputLabel}>Last Name</Text>
+      <Text style={styles.inputLabel}>
+        Your password must be at least 1 character (dunno if we wanna change this)?
+      </Text>
       <TextInput
         style={styles.formInput}
         onChangeText={updatePassword}
@@ -55,11 +49,11 @@ function inputFields (updateUsername, updatePassword) {
   )
 }
 
-function signupButton (hasValidInput, signupButtonPressed) {
+function continueButton (hasValidInput, finishButtonPressed) {
   return (
     <TouchableHighlight
       style={styles.signupButtonContainer}
-      onPress={hasValidInput ? signupButtonPressed : () => {}} // TODO: can prob provide error msg
+      onPress={hasValidInput ? finishButtonPressed : () => {}} // TODO: can prob provide error msg
       underlayColor="#F5F5F5"
     >
       <View style={hasValidInput
@@ -69,7 +63,7 @@ function signupButton (hasValidInput, signupButtonPressed) {
           ? styles.signupButtonActivatedText
           : styles.signupButtonDeactivatedText}
         >
-          Sign Up
+          Finish
         </Text>
       </View>
     </TouchableHighlight>

@@ -55,17 +55,23 @@ export function backArrow (backButtonPressed) {
 function inputFields (updateUsername, updatePassword) {
   return (
     <View>
-      <Text style={styles.inputLabel}>Username Or Email</Text>
+
+      <Text style={styles.inputLabel}>
+        Username Or Email
+      </Text>
       <TextInput
         style={styles.formInput}
         onChangeText={updateUsername}
       />
 
-      <Text style={styles.inputLabel}>Password</Text>
+      <Text style={styles.inputLabel}>
+        Password
+      </Text>
       <TextInput
         style={styles.formInput}
         onChangeText={updatePassword}
       />
+
     </View>
   )
 }

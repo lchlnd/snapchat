@@ -20,14 +20,12 @@ class Landing extends Component {
 
   loginButtonPressed () {
     this.props.navigator.push({
-      title: 'LoginContainer',
       component: LoginContainer
     })
   }
 
   registerButtonPressed () {
     this.props.navigator.push({
-      title: 'RegisterContainer',
       component: RegisterContainer
     })
   }
