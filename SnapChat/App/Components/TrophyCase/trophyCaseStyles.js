@@ -4,7 +4,7 @@ export const trophyCaseStyles = StyleSheet.create({
 
     container: {
         flex: 1,
-        backgroundColor: 'white'
+        backgroundColor: 'black'
     },
     header: {
         marginTop: 30,
@@ -16,7 +16,7 @@ export const trophyCaseStyles = StyleSheet.create({
         height: 30
     },
     headerTitle: {
-        color: 'black',
+        color: 'white',
         fontSize: 22,
         textAlign: 'center',
         flex: 1
