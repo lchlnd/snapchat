@@ -8,9 +8,8 @@ const Login = ({
   updatePassword,
   loginButtonPressed,
   hasValidInput
-}) => {
-  console.log(hasValidInput)
-  return ( <View style={styles.container}>
+}) => (
+  <View style={styles.container}>
     <View style={{backgroundColor: 'transparent'}}>
       <TouchableHighlight
         style={styles.backArrowContainer}
@@ -51,13 +50,14 @@ const Login = ({
           : styles.loginButtonDeactivated}>
           <Text style={hasValidInput
             ? styles.loginButtonActivatedText
-            : styles.loginButtonDeactivatedText}>Log In</Text>
+            : styles.loginButtonDeactivatedText}>
+            Log In
+          </Text>
         </View>
       </TouchableHighlight>
-
     </View>
   </View>
-)}
+)
 
 const func = PropTypes.func.isRequired
 
