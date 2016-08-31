@@ -35,7 +35,7 @@ Login.propTypes = {
 
 export default Login
 
-function backArrow (backButtonPressed) {
+export function backArrow (backButtonPressed) {
   return (
     <View style={{backgroundColor: 'transparent'}}>
       <TouchableHighlight
