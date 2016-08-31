@@ -16,7 +16,9 @@ export const meStyles = StyleSheet.create({
         padding: 10
     },
     header: {
-        padding: 20
+        marginTop: 30,
+        paddingBottom:10,
+        flexDirection:'row'
     },
     image: {
         padding: 20
@@ -37,21 +39,17 @@ export const meStyles = StyleSheet.create({
         color: 'white',
         paddingBottom: 20
     },
-    iconLeft: {
-        position: 'absolute',
-        left: 0
-    },
-    iconMiddle: {
-        position: 'absolute',
-        left: 170
-    },
-    iconRight: {
-        position: 'absolute',
-        right: 0
-    },
-    iconText: {
+    headerButton: {
         color: 'white',
-        fontSize: 16
+        fontSize: 16,
+        width: 40,
+        height: 30
+    },
+    headerMiddle: {
+        color: 'white',
+        fontSize: 16,
+        textAlign: 'center',
+        flex: 1
     },
     cameraButton: {
 

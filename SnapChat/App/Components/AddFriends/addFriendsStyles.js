@@ -7,11 +7,18 @@ export const addFriendsStyles = StyleSheet.create({
         backgroundColor: 'white'
     },
     header: {
-        padding: 20
+        marginTop: 30,
+        paddingBottom:10,
+        flexDirection:'row'
+    },
+    backArrow: {
+        width: 30,
+        height: 30
     },
     headerTitle: {
         color: 'black',
         fontSize: 22,
-        textAlign: 'center'
+        textAlign: 'center',
+        flex: 1
     }
 })

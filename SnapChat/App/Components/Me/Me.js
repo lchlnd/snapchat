@@ -13,15 +13,9 @@ const Me = ({
 
         {/* Header */}
         <View style={styles.header}>
-            <View style={styles.iconLeft}>
-                <Text style={styles.iconText}> / ? / </Text>
-            </View>
-            <View style={styles.iconMiddle}>
-                <Text style={styles.iconText}> / T / </Text>
-            </View>
-            <View style={styles.iconRight}>
-                <Text style={styles.iconText}> / S / </Text>
-            </View>
+            <Text style={styles.headerButton}> / ? / </Text>
+            <Text style={styles.headerMiddle}> / T / </Text>
+            <Text style={styles.headerButton}> / S / </Text>
         </View>
 
         {/* Barcode Image */}

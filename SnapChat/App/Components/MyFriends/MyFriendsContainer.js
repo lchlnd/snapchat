@@ -4,10 +4,18 @@ import MyFriends from './MyFriends'
 class MyFriendsContainer extends Component {
     constructor (props) {
         super(props)
+
+        this.backButtonPressed = this.backButtonPressed.bind(this)
+    }
+
+    backButtonPressed () {
+        this.props.navigator.pop()
     }
 
     render () {
-        return <MyFriends />
+        return <MyFriends
+                backButtonPressed={this.backButtonPressed}
+                />
     }
 }
 
