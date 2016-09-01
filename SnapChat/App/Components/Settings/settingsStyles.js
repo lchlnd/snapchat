@@ -22,5 +22,22 @@ export const settingsStyles = StyleSheet.create({
         fontSize: 22,
         textAlign: 'center',
         flex: 1
+    },
+    sectionContainer: {
+        flex: 1
+    },
+    sectionTitle: {
+        backgroundColor: '#F5F5F5',
+        color: '#32B199',
+        fontSize: 14,
+        padding: 15,
+        marginLeft: 5
+    },
+    listField: {
+        borderBottomColor: '#e8e8e8',
+        borderBottomWidth: 1,
+        backgroundColor: 'white',
+        padding: 15,
+        marginLeft: 5
     }
 })
