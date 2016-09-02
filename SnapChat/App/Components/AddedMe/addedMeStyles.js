@@ -22,5 +22,15 @@ export const addedMeStyles = StyleSheet.create({
         fontSize: 22,
         textAlign: 'center',
         flex: 1
+    },
+    userRowInfo: {
+
+    },
+    listRow: {
+
+    },
+    addedMeImg: {
+        width: 40,
+        height: 40
     }
 })

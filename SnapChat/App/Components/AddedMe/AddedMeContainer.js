@@ -14,9 +14,22 @@ class AddedMeContainer extends Component {
 
     render () {
         return <AddedMe
+                addedMeData={addedMeData}
                 backButtonPressed={this.backButtonPressed}
                 />
     }
 }
 
 export default AddedMeContainer
+
+// Mock Data
+const addedMeData = [
+    {
+        username: 'ryanokane',
+        method: 'ADDED YOU BY USERNAME'
+    },
+    {
+        username: 'nathanmalishev',
+        method: 'ADDED YOU BY USERNAME'
+    }
+]

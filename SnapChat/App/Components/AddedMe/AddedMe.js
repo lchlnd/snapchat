@@ -1,8 +1,11 @@
 import React, { PropTypes } from 'react'
-import { View, Text, TouchableHighlight, Image } from 'react-native'
+import { View, Text, TouchableHighlight, Image, ScrollView } from 'react-native'
 import { addedMeStyles as styles } from './addedMeStyles'
 
-const AddedMe = ({backButtonPressed}) => (
+const AddedMe = ({
+    backButtonPressed,
+    addedMeData
+    }) => (
 
     <View style={styles.container}>
 
@@ -20,14 +23,44 @@ const AddedMe = ({backButtonPressed}) => (
             <Text style={styles.backArrow}></Text>
         </View>
 
+        <ScrollView>
+            {addedMeData.map((e, i) => createUserRow(e, i))}
+        </ScrollView>
+
     </View>
 
 )
 
+const UserRow = ({username, method}) => {
+    return (
+        <View style={styles.listRow}>
+            <View style={styles.userRowInfo}>
+                <Image
+                    style={styles.addedMeImg}
+                    source={require('../../../images/added_me.png')}
+                />
+                <Text>{username}</Text>
+                <Text>{method}</Text>
+            </View>
+        </View>
+    )
+}
+
+const createUserRow = (userObject, i) => {
+    return (
+        <UserRow
+            key={i}
+            username={userObject.username}
+            method={userObject.method}
+        />
+    )
+}
+
 const func = PropTypes.func.isRequired
 
 AddedMe.propTypes = {
-    backButtonPressed: func
+    backButtonPressed: func,
+    addedMeData: PropTypes.array
 }
 
 export default AddedMe
