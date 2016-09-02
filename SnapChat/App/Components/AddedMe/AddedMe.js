@@ -33,14 +33,16 @@ const AddedMe = ({
 
 const UserRow = ({username, method}) => {
     return (
-        <View style={styles.listRow}>
+        <View>
             <View style={styles.userRowInfo}>
                 <Image
                     style={styles.addedMeImg}
                     source={require('../../../images/added_me.png')}
                 />
-                <Text>{username}</Text>
-                <Text>{method}</Text>
+                <View style={styles.userNameField}>
+                    <Text style={styles.username}>{username}</Text>
+                    <Text style={styles.method}>{method}</Text>
+                </View>
             </View>
         </View>
     )

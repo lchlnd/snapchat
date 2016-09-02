@@ -24,13 +24,25 @@ export const addedMeStyles = StyleSheet.create({
         flex: 1
     },
     userRowInfo: {
-
+        flexDirection: "row",
+        borderBottomColor: '#e8e8e8',
+        borderBottomWidth: 1,
+        padding: 15,
+        marginLeft: 5
     },
-    listRow: {
-
+    userNameField: {
+        flexDirection: "column",
+        marginLeft: 25
     },
     addedMeImg: {
         width: 40,
         height: 40
+    },
+    username: {
+        fontSize: 16,
+        paddingBottom: 5
+    },
+    method: {
+        fontSize: 10,
     }
 })
