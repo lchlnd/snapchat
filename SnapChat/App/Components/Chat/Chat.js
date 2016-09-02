@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
-import { Text, View, ScrollView } from 'react-native'
+import { Text, View, ListView } from 'react-native'
 import { chatStyles as styles } from './chatStyles'
-import createUserRow from './UserRow'
+import renderUserRow from './UserRow'
 
 const Chat = ({friends}) => {
   return (
@@ -9,15 +9,16 @@ const Chat = ({friends}) => {
       <Text style={styles.heading}>
         Chat
       </Text>
-      <ScrollView>
-        {friends.map((e, i) => createUserRow(e, i))}
-      </ScrollView>
+      <ListView
+        dataSource={friends}
+        renderRow={renderUserRow}
+     />
     </View>
     )
 }
 
 Chat.propTypes = {
-  friends: PropTypes.array
+  friends: PropTypes.object
 }
 
 export default Chat

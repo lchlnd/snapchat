@@ -3,7 +3,7 @@ import { Text, View } from 'react-native'
 import { chatStyles as styles } from './chatStyles'
 import constants from '../../constants'
 
-const UserRow = ({username, lastRecieved, imageStatus}) => {
+const UserRow = ({username, lastReceived, imageStatus}) => {
   return (
     <View style={styles.userRow}>
       <View style={styles.imageIcon}>
@@ -13,19 +13,19 @@ const UserRow = ({username, lastRecieved, imageStatus}) => {
       </View>
       <View style={styles.userRowInfo}>
         <Text>{username}</Text>
-        <Text style={styles.lastRecieved}>Last recieved: {lastRecieved}</Text>
+        <Text style={styles.lastReceived}>Last received: {lastReceived}</Text>
       </View>
     </View>
   )
 }
 
-const createUserRow = (userObject, i) => {
+const renderUserRow = (userObject, i) => {
   console.log(userObject)
   return (
     <UserRow
       key={i}
       username={userObject.name}
-      lastRecieved={userObject.lastRecieved}
+      lastReceived={userObject.lastReceived}
       imageStatus={userObject.imageStatus}
     />
   )
@@ -51,4 +51,4 @@ UserRow.propTypes = {
 
 }
 
-export default createUserRow
+export default renderUserRow

@@ -1,16 +1,36 @@
 import React, {PropTypes} from 'react'
 import Chat from './Chat'
 import { chatStyles as styles } from './chatStyles'
+import {ListView} from 'react-native'
+
+
+
+var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
 
 export default class ChatContainer extends React.Component {
   constructor (props) {
     super(props)
+    this.state = {
+      dataSource: ds.cloneWithRows([])
+    }
+  }
+
+  componentDidMount () {
+    mockAPICall((err, res) => {
+      console.log('res', res)
+      if (err) return
+      else {
+        this.setState({
+          dataSource: ds.cloneWithRows(res)
+        })
+      }
+    })
   }
 
   render () {
     console.log(styles.container)
 
-    return (<Chat friends={friends} />)
+    return (<Chat friends={this.state.dataSource} />)
   }
 }
 
@@ -21,30 +41,35 @@ export default ChatContainer
 
 // mock data
 import constants from '../../constants'
+
+const mockAPICall = (cb) => {
+  setTimeout(() => cb(null, friends), 300)
+}
+
 const friends = [
   {
     name: 'lachlan',
-    lastRecieved: '5m',
+    lastReceived: '5m',
     imageStatus: constants.IMAGE_RECIEVED_STATUS
   },
   {
     name: 'ryan',
-    lastRecieved: '16h',
+    lastReceived: '16h',
     imageStatus: constants.IMAGE_SENT_STATUS
   },
   {
     name: 'nathan',
-    lastRecieved: '10m',
+    lastReceived: '10m',
     imageStatus: constants.IMAGE_RECIEVED_STATUS
   },
   {
     name: 'tim',
-    lastRecieved: '30m',
+    lastReceived: '30m',
     imageStatus: constants.IMAGE_SENT_STATUS
   },
   {
     name: 'remdogga',
-    lastRecieved: 'just now',
+    lastReceived: 'just now',
     imageStatus: constants.IMAGE_OPENED_STATUS
   }
 ]
