@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import { View, Text, TouchableHighlight, Image } from 'react-native'
+import { View, Text, TouchableHighlight, Image, ScrollView } from 'react-native'
 import { addFriendsStyles as styles } from './addFriendsStyles'
 
 const AddFriends = ({backButtonPressed}) => (
@@ -20,9 +20,31 @@ const AddFriends = ({backButtonPressed}) => (
             <Text style={styles.backArrow}></Text>
         </View>
 
+        <ScrollView>
+            <Row field="Add by Username" />
+            <Row field="Add from Address Book" />
+            <Row field="Add by Snapcode" />
+            <Row field="Add Nearby" />
+            <Row field="Share username" />
+        </ScrollView>
+
     </View>
 
 )
+
+const Row = ({field}) => {
+    return (
+        <View>
+            <View style={styles.fieldInfo}>
+                <Text style={styles.fieldTitle}>{field}</Text>
+                <Image
+                    style={styles.addedMeImg}
+                    source={require('../../../images/forward_arrow.png')}
+                />
+            </View>
+        </View>
+    )
+}
 
 const func = PropTypes.func.isRequired
 
