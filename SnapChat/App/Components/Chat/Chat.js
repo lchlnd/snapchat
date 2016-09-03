@@ -3,7 +3,7 @@ import { Text, View, ListView } from 'react-native'
 import { chatStyles as styles } from './chatStyles'
 import renderUserRow from './UserRow'
 
-const Chat = ({friends}) => {
+const Chat = ({friends, openChat}) => {
   return (
     <View style={styles.container}>
       <Text style={styles.heading}>
@@ -11,14 +11,18 @@ const Chat = ({friends}) => {
       </Text>
       <ListView
         dataSource={friends}
-        renderRow={renderUserRow}
+        renderRow={(rowData, sectionId) => {
+          return renderUserRow(rowData, sectionId, openChat)
+        }}
      />
     </View>
     )
 }
 
 Chat.propTypes = {
-  friends: PropTypes.object
+  friends: PropTypes.object,
+  openChat: PropTypes.func.isRequired
 }
+
 
 export default Chat

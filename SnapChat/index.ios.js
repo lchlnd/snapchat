@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { AppRegistry, NavigatorIOS } from 'react-native'
+import { AppRegistry, NavigatorIOS, ListView } from 'react-native'
 import Landing from './App/Components/Landing/Landing'
 import Main from './App/Components/Main/Main'
 
@@ -11,8 +11,8 @@ class SnapChat extends Component {
     this.state = {
       isLoggedIn: false
     }
-    this.onLogin = this.onLogin.bind(this)
   }
+
 
   // this.setState triggers the components render method to re-fire, and re-renders the component with the updated component state
   onLogin () {
@@ -37,5 +37,7 @@ class SnapChat extends Component {
     return <Main />
   }
 }
+
+
 
 AppRegistry.registerComponent('SnapChat', () => SnapChat)

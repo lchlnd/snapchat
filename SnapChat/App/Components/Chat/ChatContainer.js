@@ -2,17 +2,19 @@ import React, {PropTypes} from 'react'
 import Chat from './Chat'
 import { chatStyles as styles } from './chatStyles'
 import {ListView} from 'react-native'
+import ChatToUser from './ChatToUser'
 
 
 
-var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
-
-export default class ChatContainer extends React.Component {
+class ChatContainer extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      dataSource: ds.cloneWithRows([])
+      dataSource: friendsDataSource.cloneWithRows([])
     }
+
+    this.openChat = this.openChat.bind(this)
+    this.backToChat = this.backToChat.bind(this)
   }
 
   componentDidMount () {
@@ -21,21 +23,37 @@ export default class ChatContainer extends React.Component {
       if (err) return
       else {
         this.setState({
-          dataSource: ds.cloneWithRows(res)
+          dataSource: friendsDataSource.cloneWithRows(res)
         })
       }
     })
   }
 
-  render () {
-    console.log(styles.container)
+  backToChat(){
+    this.props.navigator.replace({
+      title:'chat',
+      component:ChatContainer
+    })
+  }
 
-    return (<Chat friends={this.state.dataSource} />)
+  openChat(username){
+    messages.push({message:`messages for ${username}`})
+    this.props.navigator.push({
+      title:'Chat w'+username,
+      component:ChatToUser,
+      passProps:{
+        username: username,
+        messages: messagesDataSource.cloneWithRows(messages),
+        onBackPress: this.backToChat
+      }
+    })
+  }
+
+  render () {
+    return (<Chat friends={this.state.dataSource} openChat={this.openChat}/>)
   }
 }
 
-ChatContainer.propTypes = {
-}
 
 export default ChatContainer
 
@@ -46,6 +64,7 @@ const mockAPICall = (cb) => {
   setTimeout(() => cb(null, friends), 300)
 }
 
+var friendsDataSource = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
 const friends = [
   {
     name: 'lachlan',
@@ -73,3 +92,14 @@ const friends = [
     imageStatus: constants.IMAGE_OPENED_STATUS
   }
 ]
+
+
+var messagesDataSource = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
+var messages = [
+    {
+      message:'hello world'
+    },
+    {
+      message:'second'
+    },{message:'third'},{message:'tom you are a sick cunt'}
+  ]
