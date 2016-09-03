@@ -27,7 +27,21 @@ export default ChatToUser = ({username, messages, onBackPress}) => {
 
 
 const renderUserMessage = (userMessage, i) => {
-  return (
-    <Text>{userMessage.message}</Text>
-  )
+  if(userMessage.from){
+    return (
+      <View>
+        <Text style={styles.messageThem}>|
+          <Text style={styles.messageNormal}> {userMessage.message}</Text>
+        </Text>
+      </View>
+    )
+  }else{
+    return (
+      <View>
+        <Text style={styles.messageMe}>|
+          <Text style={styles.messageNormal}> {userMessage.message}</Text>
+        </Text>
+      </View>
+    )
+  }
 }

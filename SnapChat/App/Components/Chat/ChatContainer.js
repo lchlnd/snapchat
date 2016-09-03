@@ -37,13 +37,14 @@ class ChatContainer extends React.Component {
   }
 
   openChat(username){
-    messages.push({message:`messages for ${username}`})
+    let newMessages = messages
+    newMessages.push({message:`Hello my name is ${username}`})
     this.props.navigator.push({
       title:'Chat w'+username,
       component:ChatToUser,
       passProps:{
         username: username,
-        messages: messagesDataSource.cloneWithRows(messages),
+        messages: messagesDataSource.cloneWithRows(newMessages),
         onBackPress: this.backToChat
       }
     })
@@ -97,9 +98,13 @@ const friends = [
 var messagesDataSource = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
 var messages = [
     {
-      message:'hello world'
+      message:'hello world',
+      from:'hao'
     },
     {
-      message:'second'
-    },{message:'third'},{message:'tom you are a sick cunt'}
+      message:'second',
+      from:'hao'
+    },{message:'third',
+    from:'hao'},{message:'tom you are a sick cunt',
+    from:'hao'}
   ]

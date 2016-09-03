@@ -31,8 +31,6 @@ export const chatStyles = StyleSheet.create({
     backgroundColor: 'white',
     borderBottomColor: 'rgb(176, 174, 172)',
     borderBottomWidth: 0.23,
-    color:'#3cb2e2',
-    fontSize: 20,
     paddingTop: 30,
     paddingBottom:10,
     flexDirection:'row'
@@ -44,6 +42,8 @@ export const chatStyles = StyleSheet.create({
   chatToUserToolBarTitle:{
     flex:1,
     textAlign:'center',
+    color:'#3cb2e2',
+    fontSize: 20,
   },
   textInput:{
     height: 40,
@@ -53,8 +53,16 @@ export const chatStyles = StyleSheet.create({
     margin: 0
   },
   messages:{
-    alignItems:'flex-end',
     flex:1
+  },
+  messageMe:{
+    color:'red'
+  },
+  messageThem:{
+    color:'blue'
+  },
+  messageNormal:{
+    color:'black'
   },
   imageIcon: {
     width: 70
