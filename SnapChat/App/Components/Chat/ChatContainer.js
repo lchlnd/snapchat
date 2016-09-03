@@ -37,7 +37,9 @@ class ChatContainer extends React.Component {
   }
 
   openChat(username){
-    let newMessages = messages
+    // here we would call API do get data for each user & there messages
+
+    let newMessages = messages.slice(0)
     newMessages.push({message:`Hello my name is ${username}`})
     this.props.navigator.push({
       title:'Chat w'+username,
@@ -70,27 +72,47 @@ const friends = [
   {
     name: 'lachlan',
     lastReceived: '5m',
-    imageStatus: constants.IMAGE_RECIEVED_STATUS
+    receivedStatus: constants.IMAGE_RECEIVED
   },
   {
     name: 'ryan',
     lastReceived: '16h',
-    imageStatus: constants.IMAGE_SENT_STATUS
+    receivedStatus: constants.IMAGE_RECEIVED
   },
   {
     name: 'nathan',
     lastReceived: '10m',
-    imageStatus: constants.IMAGE_RECIEVED_STATUS
+    receivedStatus: constants.IMAGE_RECEIVED_SEEN
   },
   {
     name: 'tim',
     lastReceived: '30m',
-    imageStatus: constants.IMAGE_SENT_STATUS
+    receivedStatus: constants.IMAGE_SENT
   },
   {
     name: 'remdogga',
     lastReceived: 'just now',
-    imageStatus: constants.IMAGE_OPENED_STATUS
+    receivedStatus: constants.IMAGE_SENT_SEEN
+  },
+  {
+    name: 'hot_chick_69',
+    lastReceived: 'never',
+    receivedStatus: constants.TEXT_SENT
+  },
+  {
+    name: 'side_chick_01',
+    lastReceived: '1m',
+    receivedStatus: constants.TEXT_SENT_SEEN
+  },
+  {
+    name: 'side_chick_02',
+    lastReceived: '3m',
+    receivedStatus: constants.TEXT_RECEIVED
+  },
+  {
+    name: 'obama',
+    lastReceived: '10m',
+    receivedStatus: constants.TEXT_RECEIVED_SEEN
   }
 ]
 

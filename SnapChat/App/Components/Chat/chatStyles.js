@@ -70,6 +70,16 @@ export const chatStyles = StyleSheet.create({
   lastRecieved: {
     fontSize: 10,
     paddingTop: 3
+  },
+  imageIcon:{
+    height:30,
+    width:48,
+    paddingLeft:3,
+    paddingTop:3
+  },
+  imageStatus:{
+    height:27,
+    width:27
   }
 })
 
