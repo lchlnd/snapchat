@@ -43,35 +43,35 @@ const renderUserRow = (userObject, i, openChat) => {
 const imageStatusToDisplay = receivedStatus => {
   if (receivedStatus === constants.IMAGE_SENT) {
     return (
-      <Image source={require(`../../../images/imageSent.png`)} style={styles.imageStatus} />
+      <Image source={require(`../../../images/chat/imageSent.png`)} style={styles.imageStatus} />
   )
   } else if (receivedStatus === constants.IMAGE_SENT_SEEN) {
     return (
-      <Image source={require(`../../../images/imageSentSeen.png`)} style={styles.imageStatus} />
+      <Image source={require(`../../../images/chat/imageSentSeen.png`)} style={styles.imageStatus} />
     )
   } else if (receivedStatus === constants.IMAGE_RECEIVED) {
     return (
-      <Image source={require(`../../../images/imageReceived.png`)} style={styles.imageStatus} />
+      <Image source={require(`../../../images/chat/imageReceived.png`)} style={styles.imageStatus} />
     )
   } else if(receivedStatus === constants.IMAGE_RECEIVED_SEEN){
     return (
-      <Image source={require(`../../../images/imageReceivedSeen.png`)} style={styles.imageStatus} />
+      <Image source={require(`../../../images/chat/imageReceivedSeen.png`)} style={styles.imageStatus} />
     )
   } else if(receivedStatus === constants.TEXT_RECEIVED){
     return (
-      <Image source={require(`../../../images/textReceived.png`)} style={styles.imageStatus} />
+      <Image source={require(`../../../images/chat/textReceived.png`)} style={styles.imageStatus} />
     )
   } else if(receivedStatus === constants.TEXT_RECEIVED_SEEN){
     return (
-      <Image source={require(`../../../images/textReceivedSeen.png`)} style={styles.imageStatus} />
+      <Image source={require(`../../../images/chat/textReceivedSeen.png`)} style={styles.imageStatus} />
     )
   }else if(receivedStatus === constants.TEXT_SENT){
     return (
-      <Image source={require(`../../../images/textSent.png`)} style={styles.imageStatus} />
+      <Image source={require(`../../../images/chat/textSent.png`)} style={styles.imageStatus} />
     )
   }else if(receivedStatus === constants.TEXT_SENT_SEEN){
     return (
-      <Image source={require(`../../../images/textSentSeen.png`)} style={styles.imageStatus} />
+      <Image source={require(`../../../images/chat/textSentSeen.png`)} style={styles.imageStatus} />
     )
   }
 }

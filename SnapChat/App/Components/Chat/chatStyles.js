@@ -58,10 +58,12 @@ export const chatToUserStyles = StyleSheet.create({
   },
   textInput:{
     height: 40,
-    borderColor: 'gray',
-    borderWidth: 1,
-    alignItems:'flex-end',
-    margin: 0
+    margin: 0,
+    paddingLeft:5
+  },
+  textInputBorder:{
+    borderTopColor: '#F0F0F0',
+    borderTopWidth: 1
   },
   messages:{
     flex:1
@@ -96,5 +98,15 @@ export const chatToUserStyles = StyleSheet.create({
   sendButton:{
     fontSize:30,
     paddingRight:10
+  },
+  sendToolBar:{
+    flexDirection:'row',
+    justifyContent:'space-between',
+    padding:10,
+    paddingTop:0
+  },
+  toolBarImage:{
+    height:30,
+    width:30
   }
 })

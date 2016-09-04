@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, View, TextInput, ListView } from 'react-native'
+import { Text, View, TextInput, ListView, Image } from 'react-native'
 import { chatToUserStyles as styles } from './chatStyles'
 
 export default ChatToUser = ({username, messages, onBackPress}) => {
@@ -17,9 +17,17 @@ export default ChatToUser = ({username, messages, onBackPress}) => {
             renderRow={renderUserMessage}
           />
         </View>
-        <View style={styles.textInput}>
-          <TextInput />
-          <Text style={styles.sendButton}>{'>'}</Text>
+        <View>
+          <View style={styles.textInputBorder}>
+            <TextInput style={styles.textInput} placeholder="Send a chat" selectionColor="#F0030A"/>
+          </View>
+          <View style={styles.sendToolBar}>
+            <Image source={require(`../../../images/chat/gallery.png`)} style={styles.toolBarImage}/>
+            <Image source={require(`../../../images/chat/phone.png`)} style={styles.toolBarImage}/>
+            <Image source={require(`../../../images/chat/cameraIconSmallChat.png`)} style={styles.toolBarImage}/>
+            <Image source={require(`../../../images/chat/video.png`)} style={styles.toolBarImage}/>
+            <Image source={require(`../../../images/chat/emoticonFace.png`)} style={styles.toolBarImage}/>
+          </View>
         </View>
       </View>
     </View>
