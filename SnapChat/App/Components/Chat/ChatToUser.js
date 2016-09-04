@@ -1,6 +1,6 @@
 import React from 'react'
 import { Text, View, TextInput, ListView } from 'react-native'
-import { chatStyles as styles } from './chatStyles'
+import { chatToUserStyles as styles } from './chatStyles'
 
 export default ChatToUser = ({username, messages, onBackPress}) => {
   return (
@@ -17,9 +17,10 @@ export default ChatToUser = ({username, messages, onBackPress}) => {
             renderRow={renderUserMessage}
           />
         </View>
-        <TextInput
-          style={styles.textInput}
-        />
+        <View style={styles.textInput}>
+          <TextInput />
+          <Text style={styles.sendButton}>{'>'}</Text>
+        </View>
       </View>
     </View>
   )

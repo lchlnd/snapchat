@@ -11,6 +11,29 @@ export const chatStyles = StyleSheet.create({
     flex:1,
     // flexDirection:'column-reverse'
   },
+  heading: {
+    backgroundColor: '#3cb2e2',
+    color: 'white',
+    fontSize: 20,
+    padding: 10
+  },
+  imageIcon: {
+    width: 70
+  },
+  lastRecieved: {
+    fontSize: 10,
+    paddingTop: 3
+  },
+  imageIcon:{
+    height:30,
+    width:48,
+    paddingLeft:3,
+    paddingTop:3
+  },
+  imageStatus:{
+    height:27,
+    width:27
+  },
   userRow: {
     padding: 10,
     flex: 1,
@@ -20,30 +43,18 @@ export const chatStyles = StyleSheet.create({
   },
   userRowInfo: {
     flexDirection: 'column'
+  }
+})
+
+
+export const chatToUserStyles = StyleSheet.create({
+  container: {
+    flexDirection:'column',
+    flex:1
   },
-  heading: {
-    backgroundColor: '#3cb2e2',
-    color: 'white',
-    fontSize: 20,
-    padding: 10
-  },
-  chatToUserToolBar:{
-    backgroundColor: 'white',
-    borderBottomColor: 'rgb(176, 174, 172)',
-    borderBottomWidth: 0.23,
-    paddingTop: 30,
-    paddingBottom:10,
-    flexDirection:'row'
-  },
-  chatToUserToolBarButton:{
-    width:50,
-    textAlign:'center'
-  },
-  chatToUserToolBarTitle:{
+  content:{
     flex:1,
-    textAlign:'center',
-    color:'#3cb2e2',
-    fontSize: 20,
+    // flexDirection:'column-reverse'
   },
   textInput:{
     height: 40,
@@ -64,22 +75,26 @@ export const chatStyles = StyleSheet.create({
   messageNormal:{
     color:'black'
   },
-  imageIcon: {
-    width: 70
+  chatToUserToolBar:{
+    backgroundColor: 'white',
+    borderBottomColor: 'rgb(176, 174, 172)',
+    borderBottomWidth: 0.23,
+    paddingTop: 30,
+    paddingBottom:10,
+    flexDirection:'row'
   },
-  lastRecieved: {
-    fontSize: 10,
-    paddingTop: 3
+  chatToUserToolBarButton:{
+    width:50,
+    textAlign:'center'
   },
-  imageIcon:{
-    height:30,
-    width:48,
-    paddingLeft:3,
-    paddingTop:3
+  chatToUserToolBarTitle:{
+    flex:1,
+    textAlign:'center',
+    color:'#3cb2e2',
+    fontSize: 20,
   },
-  imageStatus:{
-    height:27,
-    width:27
+  sendButton:{
+    fontSize:30,
+    paddingRight:10
   }
 })
-
