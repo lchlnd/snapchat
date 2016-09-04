@@ -34,14 +34,12 @@ const AddFriends = ({backButtonPressed}) => (
 
 const Row = ({field}) => {
     return (
-        <View>
-            <View style={styles.fieldInfo}>
-                <Text style={styles.fieldTitle}>{field}</Text>
-                <Image
-                    style={styles.addedMeImg}
-                    source={require('../../../images/forward_arrow.png')}
-                />
-            </View>
+        <View style={styles.fieldInfo}>
+            <Text style={styles.fieldTitle}>{field}</Text>
+            <Image
+                style={styles.addedMeImg}
+                source={require('../../../images/forward_arrow.png')}
+            />
         </View>
     )
 }
