@@ -37,7 +37,7 @@ class ChatContainer extends React.Component {
 
   openChat(username){
     // here we would call API do get data for each user & there messages
-
+    console.log(this.props.navigator)
     let newMessages = messages.slice(0)
     newMessages.push({message:`Hello my name is ${username}`, from:username})
     newMessages.push({message:`Hi there i am the user`})
@@ -50,7 +50,8 @@ class ChatContainer extends React.Component {
         username: username,
         messages: messagesDataSource.cloneWithRows(newMessages),
         onBackPress: this.backToChat
-      }
+      },
+      sceneConfig: this.props.navigator.SceneConfigs
     })
   }
 

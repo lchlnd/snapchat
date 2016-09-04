@@ -79,8 +79,8 @@ export const chatToUserStyles = StyleSheet.create({
   },
   chatToUserToolBar:{
     backgroundColor: 'white',
-    borderBottomColor: 'rgb(176, 174, 172)',
-    borderBottomWidth: 0.23,
+    borderBottomColor: '#F0F0F0',
+    borderBottomWidth: 1,
     paddingTop: 30,
     paddingBottom:10,
     flexDirection:'row'

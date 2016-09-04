@@ -22,7 +22,7 @@ export default ChatToUser = ({username, messages, onBackPress}) => {
             <TextInput style={styles.textInput} placeholder="Send a chat" selectionColor="#F0030A"/>
           </View>
           <View style={styles.sendToolBar}>
-            <Image source={require(`../../../images/chat/gallery.png`)} style={styles.toolBarImage}/>
+          <Image source={require(`../../../images/chat/gallery.png`)} style={styles.toolBarImage}/>
             <Image source={require(`../../../images/chat/phone.png`)} style={styles.toolBarImage}/>
             <Image source={require(`../../../images/chat/cameraIconSmallChat.png`)} style={styles.toolBarImage}/>
             <Image source={require(`../../../images/chat/video.png`)} style={styles.toolBarImage}/>
