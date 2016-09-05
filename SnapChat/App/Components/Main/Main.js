@@ -38,17 +38,33 @@ class Main extends Component {
           flashMode={this.state.flash == "auto" ? Camera.constants.FlashMode.auto :
                     (this.state.flash == "on" ? Camera.constants.FlashMode.on : Camera.constants.FlashMode.off)}>
 
-          <View style={styles.toolbar}>
-              <Text style={styles.toolbarSide} onPress={() => this.handleFlashChange()}> {flashText} </Text>
-              <Text style={styles.toolbarMiddle}>ME</Text>
-              <Text style={styles.toolbarSide} onPress={() => this.handleCameraChange()}> {cameraText} </Text>
+          <View style={styles.header}>
+              <TouchableHighlight onPress={() => this.handleFlashChange()}>
+               <Text style={styles.headerButton} > {flashText} </Text>
+              </TouchableHighlight>
+              <TouchableHighlight style={styles.flex}>
+                <Text style={styles.headerMiddle}> / ME / </Text>
+              </TouchableHighlight>
+              <TouchableHighlight onPress={() => this.handleCameraChange()}>
+                <Text style={styles.headerButton} > {cameraText} </Text>
+              </TouchableHighlight>
           </View>
-          <Text
-            style={styles.capture}
-            onPress={this.takePicture.bind(this)}
-          >
-            CAPTURE
-          </Text>
+          <View style={styles.footer}>
+            <TouchableHighlight onPress={this.takePicture.bind(this)}>
+              <Text style={styles.capture}> CAPTURE </Text>
+            </TouchableHighlight>
+            <View style={styles.header}>
+              <TouchableHighlight>
+               <Text style={styles.headerButton} > / S / </Text>
+              </TouchableHighlight>
+              <TouchableHighlight style={styles.flex}>
+                <Text style={styles.headerMiddle}> / M / </Text>
+              </TouchableHighlight>
+              <TouchableHighlight>
+                <Text style={styles.headerButton} > / St / </Text>
+              </TouchableHighlight>
+              </View>
+          </View>
         </Camera>
       </View>
     )
@@ -65,21 +81,31 @@ const styles = StyleSheet.create({
   container: {
     flex: 1
   },
-    toolbar:{
-      backgroundColor:'rgba(0,0,0,0)',
-      paddingTop:15,
-      paddingBottom:10,
-      flexDirection:'row'
+  header: {
+    marginTop: 30,
+    paddingBottom:10,
+    flexDirection:'row'
   },
-  toolbarSide:{
-      width: 50,
-      color:'#fff',
-      textAlign:'center'
+  headerButton: {
+    color: 'white',
+    fontSize: 16,
+    width: 40,
+    height: 30
   },
-  toolbarMiddle:{
-      color:'#fff',
-      textAlign:'center',
-      flex:1
+  headerMiddle: {
+    color: 'white',
+    fontSize: 16,
+    textAlign: 'center',
+    flex: 1
+  },
+  footer: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    bottom: 0
+  },
+  flex: {
+    flex: 1
   },
   preview: {
     flex: 1,
@@ -93,7 +119,8 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     color: '#000',
     padding: 10,
-    margin: 40
+    margin: 40,
+    textAlign: 'center'
   }
 })
 
