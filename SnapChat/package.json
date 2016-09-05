@@ -8,7 +8,8 @@
   },
   "dependencies": {
     "react": "15.2.1",
-    "react-native": "0.31.0"
+    "react-native": "0.31.0",
+    "react-native-scrollable-tab-view": "^0.5.5"
   },
   "devDependencies": {
     "babel-eslint": "^6.1.2",
