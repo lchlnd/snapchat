@@ -95,4 +95,3 @@ function loginButton (hasValidInput, loginButtonPressed) {
     </TouchableHighlight>
   )
 }
-
