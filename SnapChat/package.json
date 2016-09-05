@@ -8,6 +8,8 @@
   },
   "dependencies": {
     "react": "15.2.1",
+    "react-icon": "^1.0.0",
+    "react-icons": "^2.2.1",
     "react-native": "0.31.0"
   },
   "devDependencies": {
