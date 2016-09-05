@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { AppRegistry, NavigatorIOS } from 'react-native'
 import Landing from './App/Components/Landing/Landing'
-import Main from './App/Components/Main/Main'
+import Edit from './App/Components/Edit/Edit'
 
 class SnapChat extends Component {
   constructor () {
@@ -32,7 +32,7 @@ class SnapChat extends Component {
     //     />
     //   )
     // }
-    return <Main />
+    return <Edit />
   }
 }
 
