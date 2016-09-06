@@ -4,17 +4,59 @@ import Login from './Login'
 class LoginContainer extends Component {
   constructor (props) {
     super(props)
+
+    this.state = {
+      username: '',
+      password: '',
+      isInputValid: false
+    }
+
     this.backButtonPressed = this.backButtonPressed.bind(this)
+    this.loginButtonPressed = this.loginButtonPressed.bind(this)
+    this.updatePassword = this.updatePassword.bind(this)
+    this.updateUsername = this.updateUsername.bind(this)
   }
 
-  // navigator component gets passed down automatically as prop from index.ios.js (NavigatorIOS)
-  // allows you to push or pop components onto the navigation stack
   backButtonPressed () {
     this.props.navigator.pop()
   }
 
+  // simple validation for now
+  updatePassword (updatedPassword) {
+    if (updatedPassword && this.state.username) {
+      this.setState({ password: updatedPassword, isInputValid: true })
+    } else {
+      this.setState({ password: updatedPassword, isInputValid: false })
+    }
+  }
+
+  updateUsername (updatedUsername) {
+    if (updatedUsername && this.state.password) {
+      this.setState({ username: updatedUsername, isInputValid: true })
+    } else {
+      this.setState({ username: updatedUsername, isInputValid: false })
+    }
+  }
+
+  loginButtonPressed () {
+    const { username, password } = this.state
+    const postRequest = {
+      username,
+      password
+    }
+    console.log(JSON.stringify(postRequest))
+  }
+
   render () {
-    return <Login backButtonPressed={this.backButtonPressed} />
+    return (
+      <Login
+        backButtonPressed={this.backButtonPressed}
+        loginButtonPressed={this.loginButtonPressed}
+        updateUsername={this.updateUsername}
+        updatePassword={this.updatePassword}
+        hasValidInput={this.state.isInputValid}
+      />
+    )
   }
 }
 
@@ -22,4 +64,4 @@ LoginContainer.propTypes = {
   navigator: PropTypes.object
 }
 
-export default Login
+export default LoginContainer
