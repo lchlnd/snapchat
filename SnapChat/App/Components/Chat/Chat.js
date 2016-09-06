@@ -24,5 +24,4 @@ Chat.propTypes = {
   openChat: PropTypes.func.isRequired
 }
 
-
 export default Chat
