@@ -8,6 +8,6 @@
   ],
   "extends": ["standard", "standard-react"],
   "rules": {
-    # overrides
+    // overrides
   }
 }
