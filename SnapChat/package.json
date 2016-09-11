@@ -11,7 +11,7 @@
     "react-native": "0.31.0",
     "react-native-camera": "git+https://github.com/lwansbrough/react-native-camera.git",
     "react-icon": "^1.0.0",
-    "react-icons": "^2.2.1",
+    "react-icons": "^2.2.1"
   },
   "devDependencies": {
     "babel-eslint": "^6.1.2",

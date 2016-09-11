@@ -7,6 +7,7 @@ import { mainStyles as styles } from './mainStyles'
 
 const Main = ({
   mePressed,
+  storiesPressed,
   cameraTogglePressed,
   flashTogglePressed,
   cameraText,
@@ -47,7 +48,7 @@ const Main = ({
 
             {/* Button navigation */}
             <View style={styles.header}>
-              <TouchableHighlight>
+              <TouchableHighlight onPress={storiesPressed}>
                <Text style={styles.headerButton} > / S / </Text>
               </TouchableHighlight>
               <TouchableHighlight style={styles.flex}>
@@ -64,6 +65,7 @@ const Main = ({
 
 Main.propTypes = {
     mePressed: PropTypes.func.isRequired,
+    storiesPressed: PropTypes.func.isRequired,
     cameraTogglePressed: PropTypes.func.isRequired,
     flashTogglePressed: PropTypes.func.isRequired,
     cameraText: PropTypes.string.isRequired,

@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import Camera from 'react-native-camera'
 import Main from './Main'
 import MeContainer from '../Me/MeContainer'
+import StoriesContainer from '../Stories/StoriesContainer'
 
 // Constant value to cycle flash modes.
 var FLASH_LOOKUP = {"auto":"on", "on":"off", "off":"auto"}
@@ -15,6 +16,7 @@ class MainContainer extends Component {
     }
 
     this.mePressed = this.mePressed.bind(this)
+    this.storiesPressed = this.storiesPressed.bind(this)
     this.cameraTogglePressed = this.cameraTogglePressed.bind(this)
     this.flashTogglePressed = this.flashTogglePressed.bind(this)
     this.takePicture = this.takePicture.bind(this)
@@ -24,6 +26,13 @@ class MainContainer extends Component {
     this.props.navigator.push({
         title: 'MeContainer',
         component: MeContainer
+    })
+  }
+
+  storiesPressed() {
+    this.props.navigator.push({
+        title: 'StoriesContainer',
+        component: StoriesContainer
     })
   }
 
@@ -45,6 +54,7 @@ class MainContainer extends Component {
   render () {
   return <Main
     mePressed={this.mePressed}
+    storiesPressed={this.storiesPressed}
     cameraTogglePressed={this.cameraTogglePressed}
     flashTogglePressed={this.flashTogglePressed}
     cameraText={this.state.frontCamera ? "front" : "back"}
