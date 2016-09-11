@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { AppRegistry, NavigatorIOS } from 'react-native'
 import Landing from './App/Components/Landing/Landing'
-import Edit from './App/Components/Edit/Edit'
+import MainContainer from './App/Components/Main/MainContainer'
 
 class SnapChat extends Component {
   constructor () {
@@ -20,20 +20,17 @@ class SnapChat extends Component {
   // If person is not logged in give them login/reg screen, otherwise let them into the app
   // The login/register component is wrapped by a navigator component to allow navigation to either route
   render () {
-    // if (!this.state.isLoggedIn) {
-    //   return (
-    //     <NavigatorIOS
-    //       navigationBarHidden
-    //       style={{flex: 1}}
-    //       initialRoute={{
-    //         title: 'SnapChat',
-    //         component: Landing
-    //       }}
-    //     />
-    //   )
-    // }
-    return <Edit />
+      return (
+        <NavigatorIOS
+          navigationBarHidden
+          style={{flex: 1}}
+          initialRoute={{
+            title: 'Main',
+            component: MainContainer
+          }}
+        />
+      )
+    }
   }
-}
 
 AppRegistry.registerComponent('SnapChat', () => SnapChat)

@@ -1,48 +1,18 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import { Text, View, Dimensions, StyleSheet, TouchableHighlight } from 'react-native'
 import Camera from 'react-native-camera'
 import { mainStyles as styles } from './mainStyles'
 
-// Constant value to cycle flash modes.
-var FLASH_LOOKUP = {"auto":"on", "on":"off", "off":"auto"}
-
-// The root component container of the app that gets rendered after user has logged in
-class Main extends Component {
-  constructor (props) {
-    super()
-    this.state = {
-      frontCamera: false,
-      flash: 'auto'
-    }
-    this.handleCameraChange = this.handleCameraChange.bind(this);
-    this.handleFlashChange = this.handleFlashChange.bind(this);
-  }
-
-  // Handle swaps between front and back camera.
-  handleCameraChange() {
-    this.setState({ frontCamera: !this.state.frontCamera})
-  }
 
 
-  // Handle swaps between flash modes.
-  handleFlashChange() {
-    this.setState({ flash: FLASH_LOOKUP[this.state.flash]})
-  }
-
-  // Saves user photo to the camera roll.
-  takePicture () {
-    this.camera.capture()
-    .then((data) => console.log(data))
-    .catch(err => console.log(err))
-  }
-
-  render () {
-    // Updates to reflect user changes to the toggle buttons.
-    const cameraText = this.state.frontCamera ? 'front' : 'back';
-    const flashText = this.state.flash
-
-
-    return (
+const Main = ({
+  mePressed,
+  cameraTogglePressed,
+  flashTogglePressed,
+  cameraText,
+  flashText,
+  takePicture
+  }) => (
 
       <View style={styles.container}>
 
@@ -50,19 +20,18 @@ class Main extends Component {
         <Camera ref={(cam) => {this.camera = cam }}
           style={styles.preview}
           aspect={Camera.constants.Aspect.fill}
-          type={this.state.frontCamera ? Camera.constants.Type.front : Camera.constants.Type.back}
-          flashMode={this.state.flash == "auto" ? Camera.constants.FlashMode.auto :
-                    (this.state.flash == "on" ? Camera.constants.FlashMode.on : Camera.constants.FlashMode.off)}>
-
+          type={cameraText == "front" ? Camera.constants.Type.front : Camera.constants.Type.back}
+          flashMode={flashText == "auto" ? Camera.constants.FlashMode.auto :
+                    (flashText == "on" ? Camera.constants.FlashMode.on : Camera.constants.FlashMode.off)}>
           {/* Header */}
           <View style={styles.header}>
-              <TouchableHighlight onPress={() => this.handleFlashChange()}>
+              <TouchableHighlight onPress={flashTogglePressed}>
                <Text style={styles.headerButton} > {flashText} </Text>
               </TouchableHighlight>
-              <TouchableHighlight style={styles.flex}>
+              <TouchableHighlight style={styles.flex} onPress={mePressed}>
                 <Text style={styles.headerMiddle}> / ME / </Text>
               </TouchableHighlight>
-              <TouchableHighlight onPress={() => this.handleCameraChange()}>
+              <TouchableHighlight onPress={cameraTogglePressed}>
                 <Text style={styles.headerButton} > {cameraText} </Text>
               </TouchableHighlight>
           </View>
@@ -71,7 +40,8 @@ class Main extends Component {
           <View style={styles.footer}>
 
             {/* Capture */}
-            <TouchableHighlight onPress={this.takePicture.bind(this)}>
+            {/* <TouchableHighlight onPress={this.takePicture.bind(this)}> */}
+            <TouchableHighlight>
               <Text style={styles.capture}> CAPTURE </Text>
             </TouchableHighlight>
 
@@ -90,8 +60,15 @@ class Main extends Component {
           </View>
         </Camera>
       </View>
-    )
-  }
+)
+
+Main.propTypes = {
+    mePressed: PropTypes.func.isRequired,
+    cameraTogglePressed: PropTypes.func.isRequired,
+    flashTogglePressed: PropTypes.func.isRequired,
+    cameraText: PropTypes.string.isRequired,
+    flashText: PropTypes.string.isRequired,
+    takePicture: PropTypes.func.isRequired
 }
 
 export default Main
