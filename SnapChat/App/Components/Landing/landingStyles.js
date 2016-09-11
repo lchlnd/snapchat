@@ -3,10 +3,13 @@ import { StyleSheet } from 'react-native'
 export const landingStyles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f3ea11'
+    backgroundColor: '#f3ea11',
+    justifyContent: 'space-between'
   },
   logo: {
-    marginTop: 150,
+    marginTop: 160,
+    height: 130,
+    width: 130,
     alignSelf: 'center'
   },
   buttonText: {
@@ -22,18 +25,14 @@ export const landingStyles = StyleSheet.create({
     fontFamily: 'Helvetica'
   },
   footer: {
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    bottom: 80,
     flexDirection: 'column',
-    height: 80,
     alignItems: 'stretch'
   },
   loginButton: {
     height: 80,
     padding: 25,
-    backgroundColor: '#e82754'
+    backgroundColor: '#e82754',
+    alignSelf: 'stretch'
   },
   signupButton: {
     height: 80,
