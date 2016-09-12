@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
-import { CameraRoll, ScrollView, View, Image } from 'react-native'
+import React, { Component, PropTypes } from 'react'
+import { CameraRoll, ScrollView, View, Image, TouchableHighlight } from 'react-native'
+import SendMemory from './SendMemory'
 import { memoriesStyles as styles } from './memoriesStyles'
 
 class CameraRollContainer extends Component {
@@ -7,11 +8,13 @@ class CameraRollContainer extends Component {
     super(props)
 
     this.state = {
-      images: []
+      images: [],
+      imageSelected: ''
     }
 
     this.storeImages = this.storeImages.bind(this)
     this.logImageError = this.logImageError.bind(this)
+    this.selectImage = this.selectImage.bind(this)
   }
 
   componentDidMount () {
@@ -29,15 +32,42 @@ class CameraRollContainer extends Component {
     console.log(err)
   }
 
+  selectImage (uri) {
+    // this gets a base-64 version of the image. turns out its low quality though
+    // NativeModules.ReadImageData.readImage(uri, (image) => {
+    //   console.log(image)
+    // })
+    this.setState({
+      selected: uri
+    })
+    this.props.navigator.push({
+      component: SendMemory,
+      title: 'Send Memory',
+      passProps: { uri }
+    })
+  }
+
   render () {
     return (
       <ScrollView style={styles.cameraRollContainer}>
         <View style={styles.cameraRollImageGrid}>
-          { this.state.images.map(image => <Image key={image.uri} style={styles.cameraRollImage} source={{ uri: image.uri }} />) }
+          { this.state.images.map(image =>
+            <TouchableHighlight
+              key={image.uri}
+              style={styles.cameraRollImageGrid}
+              onPress={() => this.selectImage(image.uri)} >
+              <Image style={styles.cameraRollImage} source={{ uri: image.uri }} />
+            </TouchableHighlight>
+            )
+          }
         </View>
       </ScrollView>
     )
   }
+}
+
+CameraRollContainer.propTypes = {
+  navigator: PropTypes.object.isRequired
 }
 
 export default CameraRollContainer

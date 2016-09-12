@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Image } from 'react-native'
 
 export const memoriesStyles = StyleSheet.create({
   container: {
@@ -20,14 +20,26 @@ export const memoriesStyles = StyleSheet.create({
     backgroundColor: '#F5FCFF'
   },
   cameraRollImageGrid: {
-    flex: 1,
     flexDirection: 'row',
     flexWrap: 'wrap',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   cameraRollImage: {
-    width: 100,
-    height: 100,
-    margin: 10,
+    width: 110,
+    height: 110,
+    margin: 5
+  },
+  selectedImageContainer: {
+    flex: 1,
+    backgroundColor: 'black',
+    alignSelf: 'stretch',
+    justifyContent: 'center'
+  },
+  selectedImage: {
+    width: 350,
+    height: 350,
+    resizeMode: Image.resizeMode.cover,
+    alignSelf: 'center'
   }
 })
