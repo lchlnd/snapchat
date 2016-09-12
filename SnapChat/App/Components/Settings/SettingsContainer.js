@@ -2,26 +2,26 @@ import React, { Component } from 'react'
 import Settings from './Settings'
 
 class SettingsContainer extends Component {
-    constructor (props) {
-        super(props)
+  constructor (props) {
+    super(props)
 
-        this.backButtonPressed = this.backButtonPressed.bind(this)
-    }
+    this.backButtonPressed = this.backButtonPressed.bind(this)
+  }
 
-    backButtonPressed () {
-        this.props.navigator.pop()
-    }
+  backButtonPressed () {
+    this.props.navigator.pop()
+  }
 
-    render () {
-        return <Settings
-            myAccountData={myAccountData}
-            additionalServicesData={additionalServicesData}
-            whoCanData={whoCanData}
-            moreInformationData={moreInformationData}
-            accountActionsData={accountActionsData}
-            backButtonPressed={this.backButtonPressed}
+  render () {
+    return <Settings
+      myAccountData={myAccountData}
+      additionalServicesData={additionalServicesData}
+      whoCanData={whoCanData}
+      moreInformationData={moreInformationData}
+      accountActionsData={accountActionsData}
+      backButtonPressed={this.backButtonPressed}
         />
-    }
+  }
 }
 
 export default SettingsContainer

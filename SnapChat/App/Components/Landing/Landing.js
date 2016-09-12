@@ -41,32 +41,26 @@ class Landing extends Component {
 
   render () {
     const logo = this.state.logoActive
-                  ? <Image style={styles.logo} source={require('../../../images/logo_active.png')} />
-                  : <Image style={styles.logo} source={require('../../../images/logo.png')} />
+      ? <Image style={styles.logo} source={require('../../../images/logo_active.png')} />
+      : <Image style={styles.logo} source={require('../../../images/logo.png')} />
     return (
       <View style={styles.container}>
         <View>
           {logo}
         </View>
-
         <View style={styles.footer}>
-          <TouchableHighlight
-            onPress={this.loginButtonPressed}
-            onPressIn={this.onPressIn}
-            onPressOut={this.onPressOut}
-          >
+          <TouchableHighlight onPress={this.loginButtonPressed} onPressIn={this.onPressIn} onPressOut={this.onPressOut}>
             <View style={styles.loginButton}>
-              <Text style={styles.buttonText}>LOG IN</Text>
+              <Text style={styles.buttonText}>
+                LOG IN
+              </Text>
             </View>
           </TouchableHighlight>
-
-          <TouchableHighlight
-            onPress={this.registerButtonPressed}
-            onPressIn={this.onPressIn}
-            onPressOut={this.onPressOut}
-          >
+          <TouchableHighlight onPress={this.registerButtonPressed} onPressIn={this.onPressIn} onPressOut={this.onPressOut}>
             <View style={styles.signupButton}>
-              <Text style={styles.buttonText}>SIGN UP</Text>
+              <Text style={styles.buttonText}>
+                SIGN UP
+              </Text>
             </View>
           </TouchableHighlight>
         </View>

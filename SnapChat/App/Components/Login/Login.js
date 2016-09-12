@@ -10,15 +10,15 @@ const Login = ({
   hasValidInput
 }) => (
   <View style={styles.container}>
-    { backArrow(backButtonPressed) }
+    {backArrow(backButtonPressed)}
 
     <View style={styles.loginHeaderWrapper}>
       <Text style={styles.loginHeader}>Log In</Text>
     </View>
 
     <View style={styles.formContainer}>
-      { inputFields(updateUsername, updatePassword) }
-      { loginButton(hasValidInput, loginButtonPressed) }
+      {inputFields(updateUsername, updatePassword)}
+      {loginButton(hasValidInput, loginButtonPressed)}
     </View>
   </View>
 )
@@ -41,7 +41,7 @@ export function backArrow (backButtonPressed) {
       <TouchableHighlight
         style={styles.backArrowContainer}
         onPress={backButtonPressed}
-        underlayColor="#F5F5F5"
+        underlayColor='#F5F5F5'
       >
         <Image
           style={styles.backArrow}
@@ -81,7 +81,7 @@ function loginButton (hasValidInput, loginButtonPressed) {
     <TouchableHighlight
       style={styles.loginButtonContainer}
       onPress={hasValidInput ? loginButtonPressed : () => {}} // TODO: can prob provide error msg
-      underlayColor="#F5F5F5"
+      underlayColor='#F5F5F5'
     >
       <View style={hasValidInput
         ? styles.loginButtonActivated
