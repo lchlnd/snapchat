@@ -39,7 +39,6 @@ const Edit = ({
 
     {/* Bottom navigation */}
     <View style={styles.footer}>
-      {/* Top Navigation */}
       <View style={styles.header}>
         {/* Editing buttons */}
         <View style={styles.triple}>
