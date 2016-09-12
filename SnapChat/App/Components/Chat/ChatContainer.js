@@ -3,8 +3,6 @@ import Chat from './Chat'
 import {ListView} from 'react-native'
 import ChatToUser from './ChatToUser'
 
-
-
 class ChatContainer extends React.Component {
   constructor (props) {
     super(props)
@@ -28,25 +26,25 @@ class ChatContainer extends React.Component {
     })
   }
 
-  backToChat(){
+  backToChat () {
     this.props.navigator.replace({
-      title:'chat',
-      component:ChatContainer
+      title: 'chat',
+      component: ChatContainer
     })
   }
 
-  openChat(username){
+  openChat (username) {
     // here we would call API do get data for each user & there messages
     console.log(this.props.navigator)
     let newMessages = messages.slice(0)
-    newMessages.push({message:`Hello my name is ${username}`, from:username})
-    newMessages.push({message:`Hi there i am the user`})
-    newMessages.push({message:`You are such a dick m8`, from:username})
-    newMessages.push({message:`Go fuck yourself ${username}`})
+    newMessages.push({message: `Hello my name is ${username}`, from: username})
+    newMessages.push({message: `Hi there i am the user`})
+    newMessages.push({message: `You are such a dick m8`, from: username})
+    newMessages.push({message: `Go fuck yourself ${username}`})
     this.props.navigator.push({
-      title:'Chat w'+username,
-      component:ChatToUser,
-      passProps:{
+      title: 'Chat w' + username,
+      component: ChatToUser,
+      passProps: {
         username: username,
         messages: messagesDataSource.cloneWithRows(newMessages),
         onBackPress: this.backToChat
@@ -56,10 +54,9 @@ class ChatContainer extends React.Component {
   }
 
   render () {
-    return (<Chat friends={this.state.dataSource} openChat={this.openChat}/>)
+    return (<Chat friends={this.state.dataSource} openChat={this.openChat} />)
   }
 }
-
 
 export default ChatContainer
 
@@ -119,8 +116,7 @@ const friends = [
   }
 ]
 
-
 var messagesDataSource = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
 var messages = [
 
-  ]
+]

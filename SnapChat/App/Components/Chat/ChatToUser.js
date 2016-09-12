@@ -8,7 +8,7 @@ export default ChatToUser = ({username, messages, onBackPress}) => {
       <View style={styles.chatToUserToolBar}>
         <Text style={styles.chatToUserToolBarButton}>DropDown</Text>
         <Text style={styles.chatToUserToolBarTitle}>{username}</Text>
-        <Text style={styles.chatToUserToolBarButton} onPress={()=>onBackPress()}>Back</Text>
+        <Text style={styles.chatToUserToolBarButton} onPress={() => onBackPress()}>Back</Text>
       </View>
       <View style={styles.content}>
         <View style={styles.messages}>
@@ -19,14 +19,14 @@ export default ChatToUser = ({username, messages, onBackPress}) => {
         </View>
         <View>
           <View style={styles.textInputBorder}>
-            <TextInput style={styles.textInput} placeholder="Send a chat" selectionColor="#F0030A"/>
+            <TextInput style={styles.textInput} placeholder='Send a chat' selectionColor='#F0030A' />
           </View>
           <View style={styles.sendToolBar}>
-          <Image source={require(`../../../images/chat/gallery.png`)} style={styles.toolBarImage}/>
-            <Image source={require(`../../../images/chat/phone.png`)} style={styles.toolBarImage}/>
-            <Image source={require(`../../../images/chat/cameraIconSmallChat.png`)} style={styles.toolBarImage}/>
-            <Image source={require(`../../../images/chat/video.png`)} style={styles.toolBarImage}/>
-            <Image source={require(`../../../images/chat/emoticonFace.png`)} style={styles.toolBarImage}/>
+          <Image source={require(`../../../images/chat/gallery.png`)} style={styles.toolBarImage} />
+            <Image source={require(`../../../images/chat/phone.png`)} style={styles.toolBarImage} />
+            <Image source={require(`../../../images/chat/cameraIconSmallChat.png`)} style={styles.toolBarImage} />
+            <Image source={require(`../../../images/chat/video.png`)} style={styles.toolBarImage} />
+            <Image source={require(`../../../images/chat/emoticonFace.png`)} style={styles.toolBarImage} />
           </View>
         </View>
       </View>
@@ -34,9 +34,8 @@ export default ChatToUser = ({username, messages, onBackPress}) => {
   )
 }
 
-
 const renderUserMessage = (userMessage, i) => {
-  if(userMessage.from){
+  if (userMessage.from) {
     return (
       <View>
         <Text style={styles.messageThem}>|
@@ -44,7 +43,7 @@ const renderUserMessage = (userMessage, i) => {
         </Text>
       </View>
     )
-  }else{
+  } else{
     return (
       <View>
         <Text style={styles.messageMe}>|

@@ -23,7 +23,6 @@ const Stories = ({stories}) => {
 
 export default Stories
 
-
 const createStoryRow = (storyObject, i) => {
   return (
     <StoryRow

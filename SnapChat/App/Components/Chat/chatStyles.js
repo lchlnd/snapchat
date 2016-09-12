@@ -1,14 +1,13 @@
 import { StyleSheet } from 'react-native'
 
-
-export const touchColor = '#F1F0EF';
+export const touchColor = '#F1F0EF'
 export const chatStyles = StyleSheet.create({
   container: {
-    flexDirection:'column',
-    flex:1
+    flexDirection: 'column',
+    flex: 1
   },
-  content:{
-    flex:1,
+  content: {
+    flex: 1
     // flexDirection:'column-reverse'
   },
   heading: {
@@ -24,15 +23,15 @@ export const chatStyles = StyleSheet.create({
     fontSize: 10,
     paddingTop: 3
   },
-  imageIcon:{
-    height:30,
-    width:48,
-    paddingLeft:3,
-    paddingTop:3
+  imageIcon: {
+    height: 30,
+    width: 48,
+    paddingLeft: 3,
+    paddingTop: 3
   },
-  imageStatus:{
-    height:27,
-    width:27
+  imageStatus: {
+    height: 27,
+    width: 27
   },
   userRow: {
     padding: 10,
@@ -46,67 +45,66 @@ export const chatStyles = StyleSheet.create({
   }
 })
 
-
 export const chatToUserStyles = StyleSheet.create({
   container: {
-    flexDirection:'column',
-    flex:1
+    flexDirection: 'column',
+    flex: 1
   },
-  content:{
-    flex:1,
+  content: {
+    flex: 1
     // flexDirection:'column-reverse'
   },
-  textInput:{
+  textInput: {
     height: 40,
     margin: 0,
-    paddingLeft:5
+    paddingLeft: 5
   },
-  textInputBorder:{
+  textInputBorder: {
     borderTopColor: '#F0F0F0',
     borderTopWidth: 1
   },
-  messages:{
-    flex:1
+  messages: {
+    flex: 1
   },
-  messageMe:{
-    color:'red'
+  messageMe: {
+    color: 'red'
   },
-  messageThem:{
-    color:'blue'
+  messageThem: {
+    color: 'blue'
   },
-  messageNormal:{
-    color:'black'
+  messageNormal: {
+    color: 'black'
   },
-  chatToUserToolBar:{
+  chatToUserToolBar: {
     backgroundColor: 'white',
     borderBottomColor: '#F0F0F0',
     borderBottomWidth: 1,
     paddingTop: 30,
-    paddingBottom:10,
-    flexDirection:'row'
+    paddingBottom: 10,
+    flexDirection: 'row'
   },
-  chatToUserToolBarButton:{
-    width:50,
-    textAlign:'center'
+  chatToUserToolBarButton: {
+    width: 50,
+    textAlign: 'center'
   },
-  chatToUserToolBarTitle:{
-    flex:1,
-    textAlign:'center',
-    color:'#3cb2e2',
-    fontSize: 20,
+  chatToUserToolBarTitle: {
+    flex: 1,
+    textAlign: 'center',
+    color: '#3cb2e2',
+    fontSize: 20
   },
-  sendButton:{
-    fontSize:30,
-    paddingRight:10
+  sendButton: {
+    fontSize: 30,
+    paddingRight: 10
   },
-  sendToolBar:{
-    flexDirection:'row',
-    justifyContent:'space-between',
-    padding:10,
-    paddingTop:0
+  sendToolBar: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    padding: 10,
+    paddingTop: 0
   },
-  toolBarImage:{
-    height:30,
-    width:30
+  toolBarImage: {
+    height: 30,
+    width: 30
   }
 })
