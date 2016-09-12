@@ -11,17 +11,14 @@ const RegisterName = ({
   hasValidInput
 }) => (
   <View style={styles.container}>
-    { backArrow(backButtonPressed) }
-
+    {backArrow(backButtonPressed)}
     <View style={styles.registerHeaderWrapper}>
       <Text style={styles.registerHeader}>What's your name?</Text>
     </View>
-
     <View style={styles.formContainer}>
-      { inputFields(updateFirstname, updateLastname) }
-      { signupButton(hasValidInput, signupButtonPressed) }
+      {inputFields(updateFirstname, updateLastname)}
+      {signupButton(hasValidInput, signupButtonPressed)}
     </View>
-
   </View>
 )
 
@@ -66,7 +63,7 @@ function signupButton (hasValidInput, signupButtonPressed) {
     <TouchableHighlight
       style={styles.signupButtonContainer}
       onPress={hasValidInput ? signupButtonPressed : () => {}} // TODO: can prob provide error msg
-      underlayColor="#F5F5F5"
+      underlayColor='#F5F5F5'
     >
       <View style={hasValidInput
         ? styles.signupButtonActivated

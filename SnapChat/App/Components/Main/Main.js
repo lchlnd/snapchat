@@ -12,7 +12,9 @@ class Main extends Component {
   render () {
     return (
       <View>
-        <Text>Snapchat Swipe UI</Text>
+        <Text>
+          Snapchat Swipe UI
+        </Text>
       </View>
     )
   }

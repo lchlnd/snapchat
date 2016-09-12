@@ -10,15 +10,15 @@ const RegisterPassword = ({
   hasValidInput
 }) => (
   <View style={styles.container}>
-    { backArrow(backButtonPressed) }
+    {backArrow(backButtonPressed)}
 
     <View style={styles.registerHeaderWrapper}>
       <Text style={styles.registerHeader}>Choose a password</Text>
     </View>
 
     <View style={styles.formContainer}>
-      { inputFields(updatePassword) }
-      { continueButton(hasValidInput, finishButtonPressed) }
+      {inputFields(updatePassword)}
+      {continueButton(hasValidInput, finishButtonPressed)}
     </View>
 
   </View>
@@ -54,7 +54,7 @@ function continueButton (hasValidInput, finishButtonPressed) {
     <TouchableHighlight
       style={styles.signupButtonContainer}
       onPress={hasValidInput ? finishButtonPressed : () => {}} // TODO: can prob provide error msg
-      underlayColor="#F5F5F5"
+      underlayColor='#F5F5F5'
     >
       <View style={hasValidInput
         ? styles.signupButtonActivated
