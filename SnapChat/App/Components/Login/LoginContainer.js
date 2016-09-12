@@ -40,10 +40,7 @@ class LoginContainer extends Component {
 
   loginButtonPressed () {
     const { username, password } = this.state
-    const postRequest = {
-      username,
-      password
-    }
+    const postRequest = { username, password }
     console.log(JSON.stringify(postRequest))
   }
 
@@ -54,8 +51,7 @@ class LoginContainer extends Component {
         loginButtonPressed={this.loginButtonPressed}
         updateUsername={this.updateUsername}
         updatePassword={this.updatePassword}
-        hasValidInput={this.state.isInputValid}
-      />
+        hasValidInput={this.state.isInputValid} />
     )
   }
 }

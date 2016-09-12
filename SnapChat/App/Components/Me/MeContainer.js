@@ -10,68 +10,68 @@ class MeContainer extends Component {
   constructor (props) {
     super(props)
 
-      this.addedMePressed = this.addedMePressed.bind(this)
-      this.addFriendsPressed = this.addFriendsPressed.bind(this)
-      this.myFriendsPressed = this.myFriendsPressed.bind(this)
-      this.cameraBackPressed = this.cameraBackPressed.bind(this)
-      this.trophyCasePressed = this.trophyCasePressed.bind(this)
-      this.settingsPressed = this.settingsPressed.bind(this)
+    this.addedMePressed = this.addedMePressed.bind(this)
+    this.addFriendsPressed = this.addFriendsPressed.bind(this)
+    this.myFriendsPressed = this.myFriendsPressed.bind(this)
+    this.cameraBackPressed = this.cameraBackPressed.bind(this)
+    this.trophyCasePressed = this.trophyCasePressed.bind(this)
+    this.settingsPressed = this.settingsPressed.bind(this)
   }
 
-    addedMePressed () {
-        this.props.navigator.push({
-            title: 'AddedMeContainer',
-            component: AddedMeContainer
-        })
-    }
+  addedMePressed () {
+    this.props.navigator.push({
+      title: 'AddedMeContainer',
+      component: AddedMeContainer
+    })
+  }
 
-    addFriendsPressed () {
-        this.props.navigator.push({
-            title: 'AddFriendsContainer',
-            component: AddFriendsContainer
-        })
-    }
+  addFriendsPressed () {
+    this.props.navigator.push({
+      title: 'AddFriendsContainer',
+      component: AddFriendsContainer
+    })
+  }
 
-    myFriendsPressed () {
-        this.props.navigator.push({
-            title: 'MyFriendsContainer',
-            component: MyFriendsContainer
-        })
-    }
+  myFriendsPressed () {
+    this.props.navigator.push({
+      title: 'MyFriendsContainer',
+      component: MyFriendsContainer
+    })
+  }
 
-    cameraBackPressed () {
-        this.props.navigator.pop()
-    }
+  cameraBackPressed () {
+    this.props.navigator.pop()
+  }
 
-    trophyCasePressed () {
-        this.props.navigator.push({
-            title: 'TrophyCaseContainer',
-            component: TrophyCaseContainer
-        })
-    }
+  trophyCasePressed () {
+    this.props.navigator.push({
+      title: 'TrophyCaseContainer',
+      component: TrophyCaseContainer
+    })
+  }
 
-    settingsPressed () {
-        this.props.navigator.push({
-            title: 'SettingsContainer',
-            component: SettingsContainer
-        })
-    }
-
+  settingsPressed () {
+    this.props.navigator.push({
+      title: 'SettingsContainer',
+      component: SettingsContainer
+    })
+  }
 
   render () {
-    return <Me
+    return (
+      <Me
         addedMePressed={this.addedMePressed}
         cameraBackPressed={this.cameraBackPressed}
         myFriendsPressed={this.myFriendsPressed}
         addFriendsPressed={this.addFriendsPressed}
         trophyCasePressed={this.trophyCasePressed}
-        settingsPressed={this.settingsPressed}
-        />
+        settingsPressed={this.settingsPressed} />
+    )
   }
 }
 
 MeContainer.propTypes = {
-    navigator: PropTypes.object
+  navigator: PropTypes.object
 }
 
 export default MeContainer
