@@ -41,8 +41,7 @@ const Main = ({
           <View style={styles.footer}>
 
             {/* Capture */}
-            {/* <TouchableHighlight onPress={this.takePicture.bind(this)}> */}
-            <TouchableHighlight>
+            <TouchableHighlight onPress={takePicture}>
               <Text style={styles.capture}> CAPTURE </Text>
             </TouchableHighlight>
 
