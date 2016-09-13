@@ -1,0 +1,8 @@
+exports.IMAGE_RECEIVED = 'imageReceived'
+exports.IMAGE_RECEIVED_SEEN = 'imageReceivedSeen'
+exports.IMAGE_SENT = 'imageSent'
+exports.IMAGE_SENT_SEEN = 'imageSentSeen'
+exports.TEXT_SENT = 'textSent'
+exports.TEXT_SENT_SEEN = 'textSentSeen'
+exports.TEXT_RECEIVED = 'textReceived'
+exports.TEXT_RECEIVED_SEEN = 'textReceivedSeen'

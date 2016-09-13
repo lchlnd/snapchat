@@ -3,6 +3,8 @@ import { AppRegistry, NavigatorIOS } from 'react-native'
 import Landing from './App/Components/Landing/Landing'
 import MainContainer from './App/Components/Main/MainContainer'
 
+import MemoriesContainer from './App/Components/Memories/MemoriesContainer'
+
 class SnapChat extends Component {
   constructor () {
     super()
@@ -20,6 +22,7 @@ class SnapChat extends Component {
   // If person is not logged in give them login/reg screen, otherwise let them into the app
   // The login/register component is wrapped by a navigator component to allow navigation to either route
   render () {
+    if (!this.state.isLoggedIn) {
       return (
         <NavigatorIOS
           navigationBarHidden
@@ -31,6 +34,8 @@ class SnapChat extends Component {
         />
       )
     }
+    return <Main />
   }
+}
 
 AppRegistry.registerComponent('SnapChat', () => SnapChat)

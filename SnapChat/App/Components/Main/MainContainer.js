@@ -1,7 +1,9 @@
 import React, { Component, PropTypes } from 'react'
 import Main from './Main'
 import MeContainer from '../Me/MeContainer'
-import StoriesContainer from '../Stories/StoriesContainer'
+import StoriesContainer from '../Story/StoryContainer'
+import ChatContainer from '../Chat/ChatContainer'
+import MemoriesContainer from '../Memories/MemoriesContainer'
 import EditContainer from '../Edit/EditContainer'
 
 // Constant value to cycle flash modes.
@@ -17,6 +19,8 @@ class MainContainer extends Component {
 
     this.mePressed = this.mePressed.bind(this)
     this.storiesPressed = this.storiesPressed.bind(this)
+    this.chatPressed = this.chatPressed.bind(this)
+    this.memoriesPressed = this.memoriesPressed.bind(this)
     this.cameraTogglePressed = this.cameraTogglePressed.bind(this)
     this.flashTogglePressed = this.flashTogglePressed.bind(this)
     this.takePicture = this.takePicture.bind(this)
@@ -33,6 +37,20 @@ class MainContainer extends Component {
     this.props.navigator.push({
       title: 'StoriesContainer',
       component: StoriesContainer
+    })
+  }
+
+  chatPressed () {
+    this.props.navigator.push({
+      title: 'ChatContainer',
+      component: ChatContainer
+    })
+  }
+
+  memoriesPressed () {
+    this.props.navigator.push({
+      title: 'MemoriesContainer',
+      component: MemoriesContainer
     })
   }
 
@@ -63,6 +81,8 @@ class MainContainer extends Component {
     return <Main
       mePressed={this.mePressed}
       storiesPressed={this.storiesPressed}
+      chatPressed={this.chatPressed}
+      memoriesPressed={this.memoriesPressed}
       cameraTogglePressed={this.cameraTogglePressed}
       flashTogglePressed={this.flashTogglePressed}
       cameraText={this.state.frontCamera ? 'front' : 'back'}

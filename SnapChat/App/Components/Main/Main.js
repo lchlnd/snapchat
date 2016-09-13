@@ -8,6 +8,8 @@ import { mainStyles as styles } from './mainStyles'
 const Main = ({
   mePressed,
   storiesPressed,
+  chatPressed,
+  memoriesPressed,
   cameraTogglePressed,
   flashTogglePressed,
   cameraText,
@@ -47,13 +49,13 @@ const Main = ({
 
             {/* Button navigation */}
             <View style={styles.header}>
-              <TouchableHighlight onPress={storiesPressed}>
-               <Text style={styles.headerButton} > / S / </Text>
+              <TouchableHighlight onPress={chatPressed}>
+               <Text style={styles.headerButton} > / C / </Text>
               </TouchableHighlight>
-              <TouchableHighlight style={styles.flex}>
+              <TouchableHighlight style={styles.flex} onPress={memoriesPressed}>
                 <Text style={styles.headerMiddle}> / M / </Text>
               </TouchableHighlight>
-              <TouchableHighlight>
+              <TouchableHighlight onPress={storiesPressed}>
                 <Text style={styles.headerButton} > / St / </Text>
               </TouchableHighlight>
             </View>
@@ -65,6 +67,8 @@ const Main = ({
 Main.propTypes = {
     mePressed: PropTypes.func.isRequired,
     storiesPressed: PropTypes.func.isRequired,
+    chatPressed: PropTypes.func.isRequired,
+    memoriesPressed: PropTypes.func.isRequired,
     cameraTogglePressed: PropTypes.func.isRequired,
     flashTogglePressed: PropTypes.func.isRequired,
     cameraText: PropTypes.string.isRequired,
