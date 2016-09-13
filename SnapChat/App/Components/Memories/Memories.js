@@ -3,6 +3,7 @@ import { View, Text } from 'react-native'
 import { memoriesStyles as styles } from './memoriesStyles'
 import ScrollableTabView, { DefaultTabBar } from 'react-native-scrollable-tab-view'
 import CameraRollContainer from './CameraRollContainer'
+import SnapsContainer from './SnapsContainer'
 
 const Memories = ({ navigator }) => (
   <View style={styles.container}>
@@ -15,7 +16,9 @@ const Memories = ({ navigator }) => (
       tabBarActiveTextColor='indianred'
       tabBarInactiveTextColor='gray'
     >
-      <Text tabLabel={'Snaps'}>save some snaps and stories to get started (dunno whats sposed to go in here</Text>
+      {/* Snaps container lists all your saved memories (photos you've taken) and adds to ability to resend */}
+      <SnapsContainer navigator={navigator} tabLabel={'Snaps'} />
+      {/* Lets you look through camera roll to send ppl snaps, upload or delete */}
       <CameraRollContainer navigator={navigator} tabLabel={'Camera Roll'} />
     </ScrollableTabView>
   </View>

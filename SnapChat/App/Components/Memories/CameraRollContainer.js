@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { CameraRoll, ScrollView, View, Image, TouchableHighlight } from 'react-native'
-import SendMemory from './SendMemory'
+import ManageMemory from './ManageMemory'
 import { memoriesStyles as styles } from './memoriesStyles'
 
 class CameraRollContainer extends Component {
@@ -41,16 +41,16 @@ class CameraRollContainer extends Component {
       selected: uri
     })
     this.props.navigator.push({
-      component: SendMemory,
-      title: 'Send Memory',
+      component: ManageMemory,
+      title: 'Manage Memory',
       passProps: { uri }
     })
   }
 
   render () {
     return (
-      <ScrollView style={styles.cameraRollContainer}>
-        <View style={styles.cameraRollImageGrid}>
+      <ScrollView style={styles.imageRollContainer}>
+        <View style={styles.imageRollImageGrid}>
           { this.state.images.map(image =>
             <TouchableHighlight
               key={image.uri}
