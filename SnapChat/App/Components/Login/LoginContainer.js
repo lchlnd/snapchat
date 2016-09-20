@@ -1,5 +1,8 @@
 import React, { Component, PropTypes } from 'react'
+import Spinner from 'react-native-loading-spinner-overlay'
+import { View } from 'react-native'
 import Login from './Login'
+import { login } from './loginUtils'
 
 class LoginContainer extends Component {
   constructor (props) {
@@ -8,20 +11,22 @@ class LoginContainer extends Component {
     this.state = {
       username: '',
       password: '',
-      isInputValid: false
+      loading: false,
+      isInputValid: false,
+      errorState: false
     }
 
     this.backButtonPressed = this.backButtonPressed.bind(this)
     this.loginButtonPressed = this.loginButtonPressed.bind(this)
     this.updatePassword = this.updatePassword.bind(this)
     this.updateUsername = this.updateUsername.bind(this)
+    this.toggleSpinner = this.toggleSpinner.bind(this)
   }
 
   backButtonPressed () {
     this.props.navigator.pop()
   }
 
-  // simple validation for now
   updatePassword (updatedPassword) {
     if (updatedPassword && this.state.username) {
       this.setState({ password: updatedPassword, isInputValid: true })
@@ -38,26 +43,57 @@ class LoginContainer extends Component {
     }
   }
 
+  toggleSpinner () {
+    this.setState({
+      loading: !this.state.loading
+    })
+  }
+
   loginButtonPressed () {
     const { username, password } = this.state
-    const postRequest = { username, password }
-    console.log(JSON.stringify(postRequest))
+    this.toggleSpinner()
+
+    login(username.toLowerCase(), password)
+      .then((success) => {
+        this.props.loginSuccess(success)
+      })
+      .catch((error) => {
+        this.setState({
+          errorState: true
+        }, () => {
+          // this weird shit makes the error message disappear after 4 seconds
+          this.toggleSpinner()
+          setTimeout(() => {
+            this.setState({
+              errorState: false
+            })
+          }, 4000)
+        })
+      })
   }
 
   render () {
+    const spinner = this.state.loading
+      ? <Spinner visible overlayColor='rgba(0,0,0,0.70)' />
+      : null
     return (
       <Login
+        errorMessage={this.state.errorMessage}
         backButtonPressed={this.backButtonPressed}
         loginButtonPressed={this.loginButtonPressed}
         updateUsername={this.updateUsername}
         updatePassword={this.updatePassword}
-        hasValidInput={this.state.isInputValid} />
+        hasValidInput={this.state.isInputValid}
+        errorState={this.state.errorState} >
+        {spinner}
+      </Login>
     )
   }
 }
 
 LoginContainer.propTypes = {
-  navigator: PropTypes.object
+  navigator: PropTypes.object,
+  loginSuccess: PropTypes.func.isRequired
 }
 
 export default LoginContainer

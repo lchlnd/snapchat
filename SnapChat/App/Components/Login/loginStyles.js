@@ -67,5 +67,11 @@ export const loginStyles = StyleSheet.create({
     alignSelf: 'center',
     color: 'gray',
     fontWeight: 'bold'
+  },
+  errorMessage: {
+    color: 'indianred',
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginTop: 10
   }
 })

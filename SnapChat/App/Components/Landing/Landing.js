@@ -9,7 +9,7 @@ class Landing extends Component {
     super(props)
 
     this.state = {
-      logoActive: false
+      logoActive: false,
     }
 
     this.loginButtonPressed = this.loginButtonPressed.bind(this)
@@ -20,7 +20,10 @@ class Landing extends Component {
 
   loginButtonPressed () {
     this.props.navigator.push({
-      component: LoginContainer
+      component: LoginContainer,
+      passProps: {
+        loginSuccess: this.props.loginSuccess
+      }
     })
   }
 
@@ -70,7 +73,8 @@ class Landing extends Component {
 }
 
 Landing.propTypes = {
-  navigator: PropTypes.object
+  navigator: PropTypes.object,
+  loginSuccess: PropTypes.func.isRequired
 }
 
 export default Landing

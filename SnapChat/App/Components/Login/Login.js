@@ -7,7 +7,9 @@ const Login = ({
   updateUsername,
   updatePassword,
   loginButtonPressed,
-  hasValidInput
+  hasValidInput,
+  children,
+  errorState
 }) => (
   <View style={styles.container}>
     {backArrow(backButtonPressed)}
@@ -16,9 +18,11 @@ const Login = ({
       <Text style={styles.loginHeader}>Log In</Text>
     </View>
 
+    {children}
+
     <View style={styles.formContainer}>
       {inputFields(updateUsername, updatePassword)}
-      {loginButton(hasValidInput, loginButtonPressed)}
+      {loginButton(hasValidInput, loginButtonPressed, errorState)}
     </View>
   </View>
 )
@@ -30,7 +34,9 @@ Login.propTypes = {
   updateUsername: func,
   updatePassword: func,
   loginButtonPressed: func,
-  hasValidInput: PropTypes.bool.isRequired
+  children: PropTypes.object,
+  hasValidInput: PropTypes.bool.isRequired,
+  errorState: PropTypes.bool
 }
 
 export default Login
@@ -55,15 +61,13 @@ export function backArrow (backButtonPressed) {
 function inputFields (updateUsername, updatePassword) {
   return (
     <View>
-
       <Text style={styles.inputLabel}>
-        Username Or Email
+        Email
       </Text>
       <TextInput
         style={styles.formInput}
         onChangeText={updateUsername}
       />
-
       <Text style={styles.inputLabel}>
         Password
       </Text>
@@ -71,27 +75,33 @@ function inputFields (updateUsername, updatePassword) {
         style={styles.formInput}
         onChangeText={updatePassword}
       />
-
     </View>
   )
 }
 
-function loginButton (hasValidInput, loginButtonPressed) {
+function loginButton (hasValidInput, loginButtonPressed, errorState) {
+  let errorNotifcation = null
+  if (errorState) {
+    errorNotifcation = <Text style={styles.errorMessage}>Could not validate email or password</Text>
+  }
   return (
-    <TouchableHighlight
-      style={styles.loginButtonContainer}
-      onPress={hasValidInput ? loginButtonPressed : () => {}} // TODO: can prob provide error msg
-      underlayColor='#F5F5F5'
-    >
-      <View style={hasValidInput
-        ? styles.loginButtonActivated
-        : styles.loginButtonDeactivated}>
-        <Text style={hasValidInput
-          ? styles.loginButtonActivatedText
-          : styles.loginButtonDeactivatedText}>
-          Log In
-        </Text>
-      </View>
-    </TouchableHighlight>
+    <View>
+      <TouchableHighlight
+        style={styles.loginButtonContainer}
+        onPress={hasValidInput ? loginButtonPressed : () => {}} // TODO: can prob provide error msg
+        underlayColor='#F5F5F5'
+      >
+        <View style={hasValidInput
+          ? styles.loginButtonActivated
+          : styles.loginButtonDeactivated}>
+          <Text style={hasValidInput
+            ? styles.loginButtonActivatedText
+            : styles.loginButtonDeactivatedText}>
+            Log In
+          </Text>
+        </View>
+      </TouchableHighlight>
+      {errorNotifcation}
+    </View>
   )
 }

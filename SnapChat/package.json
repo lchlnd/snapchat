@@ -7,13 +7,15 @@
     "lint": "esw --watch"
   },
   "dependencies": {
+    "firebase": "^3.4.0",
     "react": "15.2.1",
+    "react-icon": "^1.0.0",
+    "react-icons": "^2.2.1",
     "react-native": "0.31.0",
     "react-native-camera": "git+https://github.com/lwansbrough/react-native-camera.git",
+    "react-native-loading-spinner-overlay": "^0.3.0",
     "react-native-scrollable-tab-view": "^0.5.5",
-    "rn-camera-roll": "0.0.5",
-    "react-icon": "^1.0.0",
-    "react-icons": "^2.2.1"
+    "rn-camera-roll": "0.0.5"
   },
   "devDependencies": {
     "babel-eslint": "^6.1.2",

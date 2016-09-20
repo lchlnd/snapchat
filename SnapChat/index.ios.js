@@ -1,9 +1,18 @@
 import React, { Component } from 'react'
 import { AppRegistry, NavigatorIOS } from 'react-native'
 import Landing from './App/Components/Landing/Landing'
-import MainContainer from './App/Components/Main/MainContainer'
+import Main from './App/Components/Main/Main'
+import * as firebase from 'firebase'
 
-import MemoriesContainer from './App/Components/Memories/MemoriesContainer'
+const firebaseConfig = {
+  apiKey: 'AIzaSyA1ibIJsCQv8KBNMhg5D91PvuYI3QM5viU',
+  authDomain: 'snapchat-da2b5.firebaseapp.com',
+  databaseURL: 'https://snapchat-da2b5.firebaseio.com',
+  storageBucket: 'snapchat-da2b5.appspot.com',
+  messagingSenderId: '927676989151'
+}
+
+firebase.initializeApp(firebaseConfig)
 
 class SnapChat extends Component {
   constructor () {
@@ -11,16 +20,14 @@ class SnapChat extends Component {
     this.state = {
       isLoggedIn: false
     }
+    // TODO: can check here if user is logged in
     this.onLogin = this.onLogin.bind(this)
   }
 
-  // this.setState triggers the components render method to re-fire, and re-renders the component with the updated component state
   onLogin () {
     this.setState({isLoggedIn: true})
   }
 
-  // If person is not logged in give them login/reg screen, otherwise let them into the app
-  // The login/register component is wrapped by a navigator component to allow navigation to either route
   render () {
     if (!this.state.isLoggedIn) {
       return (
@@ -28,8 +35,11 @@ class SnapChat extends Component {
           navigationBarHidden
           style={{flex: 1}}
           initialRoute={{
-            title: 'Main',
-            component: MainContainer
+            title: 'Landing',
+            component: Landing,
+            passProps: {
+              loginSuccess: this.onLogin
+            }
           }}
         />
       )
