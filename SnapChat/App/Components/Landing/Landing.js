@@ -9,7 +9,7 @@ class Landing extends Component {
     super(props)
 
     this.state = {
-      logoActive: false,
+      logoActive: false
     }
 
     this.loginButtonPressed = this.loginButtonPressed.bind(this)

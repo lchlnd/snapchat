@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react'
 import Spinner from 'react-native-loading-spinner-overlay'
-import { View } from 'react-native'
 import Login from './Login'
 import { login } from './loginUtils'
 

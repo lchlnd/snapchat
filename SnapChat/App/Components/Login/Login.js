@@ -88,7 +88,7 @@ function loginButton (hasValidInput, loginButtonPressed, errorState) {
     <View>
       <TouchableHighlight
         style={styles.loginButtonContainer}
-        onPress={hasValidInput ? loginButtonPressed : () => {}} // TODO: can prob provide error msg
+        onPress={hasValidInput ? loginButtonPressed : () => {}}
         underlayColor='#F5F5F5'
       >
         <View style={hasValidInput
