@@ -1,4 +1,7 @@
 import React, { Component, PropTypes } from 'react'
+import Spinner from 'react-native-loading-spinner-overlay'
+import { AsyncStorage } from 'react-native'
+import * as firebase from 'firebase'
 import RegisterName from './RegisterName'
 import RegisterBirthday from './RegisterBirthday'
 import RegisterUsername from './RegisterUsername'
@@ -11,6 +14,9 @@ class RegisterContainer extends Component {
     this.state = {
       firstname: '',
       lastname: '',
+      username: '',
+      password: '',
+      loading: false,
       birthday: new Date(),
       isNameInputValid: false,
       isBirthdayInputValid: false,
@@ -38,6 +44,12 @@ class RegisterContainer extends Component {
     this.props.navigator.pop()
   }
 
+  toggleSpinner () {
+    this.setState({
+      loading: !this.state.loading
+    })
+  }
+
   updateFirstname (updatedFirstname) {
     if (updatedFirstname && this.state.lastname) {
       this.setState({ firstname: updatedFirstname, isNameInputValid: true })
@@ -54,12 +66,10 @@ class RegisterContainer extends Component {
     }
   }
 
-  // doesn't stop people putting birthdays in the future but yolo
   updateBirthday (updateBirthday) {
     this.setState({ birthday: updateBirthday, isBirthdayInputValid: true })
   }
 
-  // same with this one, could verify username doesn't already exist in firebase here
   updateUsername (updatedUsername) {
     if (updatedUsername) {
       this.setState({ username: updatedUsername, isUsernameValid: true })
@@ -70,9 +80,9 @@ class RegisterContainer extends Component {
 
   updatePassword (updatedPassword) {
     if (updatedPassword) {
-      this.setState({ username: updatedPassword, isPasswordInputValid: true })
+      this.setState({ password: updatedPassword, isPasswordInputValid: true })
     } else {
-      this.setState({ username: updatedPassword, isPasswordInputValid: false })
+      this.setState({ password: updatedPassword, isPasswordInputValid: false })
     }
   }
 
@@ -89,11 +99,45 @@ class RegisterContainer extends Component {
   }
 
   finishRegistration () {
-    console.log(JSON.stringify(this.state))
+    this.toggleSpinner()
+    const { username, password } = this.state
+    firebase.auth().createUserWithEmailAndPassword(username, password)
+      .then((user) => {
+        this.saveUser(user)
+        this.updateUserDetails(user)
+        this.toggleSpinner()
+        this.props.loginSuccess()
+      })
+      .catch((error) => {
+        this.toggleSpinner()
+        console.log(error)
+      })
   }
 
-  // hacky way to emulate the UX flow of snapchat's register
+  async saveUser (user) {
+    try {
+      await AsyncStorage.setItem('userId', JSON.stringify(user.uid))
+    } catch (error) {
+      console.log('Error saving user to local storage: ', error)
+    }
+  }
+
+  updateUserDetails (user) {
+    const { username, firstname, lastname, birthday } = this.state
+    const userId = user.uid
+    firebase.database().ref('users/' + userId).set({
+      username,
+      firstname,
+      lastname,
+      birthday: JSON.stringify(birthday)
+    })
+  }
+
   render () {
+    const spinner = this.state.loading
+      ? <Spinner visible overlayColor='rgba(0,0,0,0.70)' />
+      : null
+
     if (!this.state.nameComplete) {
       return (
         <RegisterName
@@ -130,14 +174,17 @@ class RegisterContainer extends Component {
           updatePassword={this.updatePassword}
           finishButtonPressed={this.finishRegistration}
           hasValidInput={this.state.isPasswordInputValid}
-        />
+        >
+          {spinner}
+        </RegisterPassword>
       )
     }
   }
 }
 
 RegisterContainer.propTypes = {
-  navigator: PropTypes.object
+  navigator: PropTypes.object,
+  loginSuccess: PropTypes.func
 }
 
 export default RegisterContainer

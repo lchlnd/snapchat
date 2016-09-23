@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import Spinner from 'react-native-loading-spinner-overlay'
 import Login from './Login'
+import { AsyncStorage } from 'react-native'
 import { login } from './loginUtils'
 
 class LoginContainer extends Component {
@@ -54,6 +55,7 @@ class LoginContainer extends Component {
 
     login(username.toLowerCase(), password)
       .then((success) => {
+        this.saveUser(success)
         this.props.loginSuccess(success)
       })
       .catch((error) => {
@@ -69,6 +71,14 @@ class LoginContainer extends Component {
           }, 4000)
         })
       })
+  }
+
+  async saveUser (user) {
+    try {
+      await AsyncStorage.setItem('userId', JSON.stringify(user.uid))
+    } catch (error) {
+      console.log('Error saving user to local storage: ', error)
+    }
   }
 
   render () {

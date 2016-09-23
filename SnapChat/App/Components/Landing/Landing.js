@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import { Text, View, Image, TouchableHighlight } from 'react-native'
 import { landingStyles as styles } from './landingStyles'
 import LoginContainer from '../Login/LoginContainer'
-import RegisterContainer from '../Me/MeContainer'
+import RegisterContainer from '../Register/RegisterContainer'
 
 class Landing extends Component {
   constructor (props) {
@@ -29,8 +29,11 @@ class Landing extends Component {
 
   registerButtonPressed () {
     this.props.navigator.push({
-      title: 'MeContainer',
-      component: RegisterContainer
+      title: 'RegisterContainer',
+      component: RegisterContainer,
+      passProps: {
+        loginSuccess: this.props.loginSuccess
+      }
     })
   }
 

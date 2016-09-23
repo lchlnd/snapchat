@@ -7,7 +7,8 @@ const RegisterPassword = ({
   backButtonPressed,
   finishButtonPressed,
   updatePassword,
-  hasValidInput
+  hasValidInput,
+  children
 }) => (
   <View style={styles.container}>
     {backArrow(backButtonPressed)}
@@ -21,6 +22,8 @@ const RegisterPassword = ({
       {continueButton(hasValidInput, finishButtonPressed)}
     </View>
 
+    {children}
+
   </View>
 )
 
@@ -30,7 +33,8 @@ RegisterPassword.propTypes = {
   backButtonPressed: func.isRequired,
   finishButtonPressed: func.isRequired,
   updatePassword: func.isRequired,
-  hasValidInput: PropTypes.bool.isRequired
+  hasValidInput: PropTypes.bool.isRequired,
+  children: PropTypes.object
 }
 
 export default RegisterPassword
@@ -39,7 +43,7 @@ function inputFields (updatePassword) {
   return (
     <View>
       <Text style={styles.inputLabel}>
-        Your password must be at least 1 character (dunno if we wanna change this)?
+        Passwords must be at least 6 characters.
       </Text>
       <TextInput
         style={styles.formInput}

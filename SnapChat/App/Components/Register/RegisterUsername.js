@@ -13,7 +13,7 @@ const RegisterUsername = ({
     {backArrow(backButtonPressed)}
 
     <View style={styles.registerHeaderWrapper}>
-      <Text style={styles.registerHeader}>Pick a username</Text>
+      <Text style={styles.registerHeader}>Enter you email</Text>
     </View>
 
     <View style={styles.formContainer}>
@@ -39,7 +39,7 @@ function inputFields (updateUsername) {
   return (
     <View>
       <Text style={styles.inputLabel}>
-        Your friends use your username to add you on Snapchat.
+        Friends use your email to add you on Snapchat.
       </Text>
       <TextInput
         style={styles.formInput}
